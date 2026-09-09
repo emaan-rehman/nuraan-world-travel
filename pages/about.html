@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Nuraan World Travel</title>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-link">
+        <img src="../assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="nav-logo">
+        <span class="brand-name">NURAAN WORLD TRAVEL</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="flight-booking.html" class="nav-link">Flights</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="visa-services.html" class="nav-link">Visa Services</a>
+        <a href="travel-services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp-sm">
+          <i class="fa-brands fa-whatsapp"></i> Direct Chat
+        </button>
+        <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="section-padding bg-alt page-hero">
+    <div class="section-container text-center">
+      <span class="hero-badge"><i class="fa-solid fa-compass text-gold"></i> Simple & Honest Travel</span>
+      <h1 class="section-title page-hero-title">Travel Made <span class="text-gradient-gold">Simple, Fast & Clear</span></h1>
+      <p class="section-subtitle page-hero-sub">We take the stress out of flight booking. No hidden costs, no confusing steps—just direct support and real prices.</p>
+    </div>
+  </section>
+
+  <!-- STORY SECTION WITH IMAGE -->
+  <section class="section-padding">
+    <div class="section-container contact-grid align-center">
+      
+      <!-- Left Content -->
+      <div class="about-content-block">
+        <h2 class="about-section-heading">Your Personal <span class="text-gradient-gold">Flight Desk</span></h2>
+        
+        <p class="about-simple-text">
+          Based in <strong>South Africa</strong>, Nuraan World Travel is your reliable travel partner. We believe booking a flight should be easy and straightforward.
+        </p>
+
+        <p class="about-simple-text">
+          Instead of using confusing websites with prices that change every minute, we give you clear flight choices sent directly to your <strong>WhatsApp or Email</strong>.
+        </p>
+
+        <!-- Feature List -->
+        <div class="about-feature-pills">
+          <div class="feature-pill"><i class="fa-solid fa-check text-gold"></i> Direct Airline Rates</div>
+          <div class="feature-pill"><i class="fa-solid fa-check text-gold"></i> No Surprise Fees</div>
+          <div class="feature-pill"><i class="fa-solid fa-check text-gold"></i> Instant E-Tickets</div>
+        </div>
+      </div>
+
+      <!-- Right Image Card -->
+      <div class="hero-image-wrapper">
+        <img src="../assets/images/about-team.jpg" alt="Nuraan World Travel Team" class="hero-image">
+        <div class="hero-image-overlay"></div>
+        <div class="floating-badge badge-bottom-left">
+          <div class="badge-icon-gold"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <span class="badge-title">South Africa</span>
+            <span class="badge-sub">Serving Travelers Worldwide</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3 SIMPLE PROMISES -->
+  <section class="section-padding bg-alt">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Why Travel With Us?</h2>
+        <p class="section-subtitle">We handle the hard work so you can enjoy your journey.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card about-promise-card">
+          <div class="step-number"><i class="fa-solid fa-shield-heart text-gold"></i></div>
+          <h3 class="step-title">100% Honest Pricing</h3>
+          <p class="step-desc">The price we quote is the price you pay. No extra hidden charges when you confirm your ticket.</p>
+        </div>
+
+        <div class="step-card about-promise-card">
+          <div class="step-number"><i class="fa-solid fa-bolt text-gold"></i></div>
+          <h3 class="step-title">Fast Quotes</h3>
+          <p class="step-desc">Tell us your destination, and receive live ticket choices on WhatsApp in just a few minutes.</p>
+        </div>
+
+        <div class="step-card about-promise-card">
+          <div class="step-number"><i class="fa-solid fa-headset text-gold"></i></div>
+          <h3 class="step-title">Full Travel Support</h3>
+          <p class="step-desc">From flight seats to visa guidance and hotel bookings, our team is always here to help you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION BANNER -->
+  <section class="section-padding">
+    <div class="section-container contact-grid align-center">
+      
+      <!-- Left Image -->
+      <div class="hero-image-wrapper">
+        <img src="../assets/images/about-mission.jpg" alt="Flight in sky" class="hero-image">
+        <div class="hero-image-overlay"></div>
+      </div>
+
+      <!-- Right Text CTA -->
+      <div class="about-cta-block">
+        <h2 class="about-section-heading">Ready For Your Next Journey?</h2>
+        <p class="about-simple-text" style="margin-bottom: 24px;">
+          Whether you are flying for business, family, or holiday, we will find the best route and price for you.
+        </p>
+        <div class="about-btn-group">
+          <a href="flight-booking.html" class="btn btn-gold btn-lg btn-glow">
+            <i class="fa-solid fa-plane"></i> Book A Flight
+          </a>
+          <a href="contact.html" class="btn btn-outline btn-lg">
+            <i class="fa-solid fa-envelope"></i> Contact Us
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-brand-link">
+          <img src="../assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="footer-logo">
+          <span class="brand-name">NURAAN WORLD TRAVEL</span>
+        </a>
+        <p class="footer-desc">
+          Your premier global travel agency specializing in direct flight reservations, custom itineraries, and visa consultation services worldwide.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="flight-booking.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Flight Booking</a></li>
+          <li><a href="about.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Our Services</h3>
+        <ul class="footer-links">
+          <li><a href="flight-booking.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Airline Reservations</a></li>
+          <li><a href="visa-services.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Visa Consultancy</a></li>
+          <li><a href="travel-services.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Hotel Booking</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Flight Desk Contact</h3>
+        <ul class="footer-contact-list">
+          <li><i class="fa-solid fa-location-dot text-gold"></i> 15 Scott Street Mall, Newcastle, South Africa</li>
+          <li><a href="tel:+27649816443" class="footer-contact-link"><i class="fa-solid fa-phone text-gold"></i> +27 64 981 6443</a></li>
+          <li><a href="mailto:nuraanworldtravel@gmail.com" class="footer-contact-link"><i class="fa-solid fa-envelope text-gold"></i> nuraanworldtravel@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Nuraan World Travel. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/whatsapp.js"></script>
+</body>
+</html>
