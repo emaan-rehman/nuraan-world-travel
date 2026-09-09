@@ -19,7 +19,7 @@
   <header class="navbar">
     <div class="nav-container">
       <a href="index.html" class="brand-link">
-        <img src="assets/images/logo.png" alt="Nuraan World Travel Logo" class="nav-logo">
+        <img src="assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="nav-logo">
         <span class="brand-name">NURAAN WORLD TRAVEL</span>
       </a>
 
@@ -44,24 +44,71 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-banner">
-    <div class="hero-overlay"></div>
+  <!-- HERO SECTION WITH RIGHT-SIDE IMAGE -->
+<!-- HERO SECTION -->
+<section class="hero-banner">
+  <!-- Subtle Background Ambient Glow -->
+  <div class="hero-glow-effect"></div>
+
+  <div class="hero-container">
+    
+    <!-- Left Content -->
     <div class="hero-content">
-      <span class="hero-badge"><i class="fa-solid fa-plane-up"></i> Custom Flight Reservations</span>
-      <h1 class="hero-title">Experience Seamless Global Flight Booking</h1>
-      <p class="hero-subtitle">Submit your exact route preferences and receive direct quotes via WhatsApp or Email.</p>
+      <div class="hero-badge">
+        <i class="fa-solid fa-plane-up text-gold"></i> Custom Flight Reservations
+      </div>
+      
+      <h1 class="hero-title">
+        Experience Seamless <span class="text-gradient-gold">Global Flight Booking</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        Submit your exact route preferences and receive instant, personalized fare quotes directly on WhatsApp or Email.
+      </p>
       
       <div class="hero-cta-group">
-        <a href="pages/contact.html" class="btn btn-gold btn-lg">
+        <a href="pages/contact.html" class="btn btn-gold btn-lg btn-glow">
           <i class="fa-solid fa-paper-plane"></i> Book A Flight Now
         </a>
         <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp btn-lg">
           <i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry
         </button>
       </div>
+
+      <!-- Quick Trust Indicators -->
+      <div class="hero-trust-bar">
+        <span><i class="fa-solid fa-check text-gold"></i> No Hidden Fees</span>
+        <span><i class="fa-solid fa-check text-gold"></i> 24/7 Desk Support</span>
+        <span><i class="fa-solid fa-check text-gold"></i> Instant E-Tickets</span>
+      </div>
     </div>
-  </section>
+
+    <!-- Right Image Wrapper with Floating Glass Badges -->
+    <div class="hero-image-wrapper">
+      <img src="assets/images/hero.jpg" alt="Global Commercial Flight" class="hero-image">
+      <div class="hero-image-overlay"></div>
+
+      <!-- Top Right Floating Price Badge -->
+      <div class="floating-badge badge-top-right">
+        <div class="badge-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div>
+          <span class="badge-title">Live Rate Quotes</span>
+          <span class="badge-sub">Best Price Guarantee</span>
+        </div>
+      </div>
+
+      <!-- Bottom Left Glassmorphism Badge -->
+      <div class="floating-badge badge-bottom-left">
+        <div class="badge-icon-gold"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <span class="badge-title">Verified Flight Desk</span>
+          <span class="badge-sub">Direct Airline Reservations</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- TRUST STATS BAR -->
   <section class="stats-bar">
