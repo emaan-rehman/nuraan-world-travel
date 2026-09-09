@@ -6,14 +6,8 @@ const CONTACT_CONFIG = {
   EMAIL_ADDRESS: "nuraanworldtravel@gmail.com"
 };
 
+// --- FLIGHT FORM HANDLERS ---
 function sendToWhatsApp() {
-  const form = document.getElementById('flightForm');
-  
-  if (!form) {
-    window.open(`https://wa.me/${CONTACT_CONFIG.PRIMARY_WHATSAPP}`, '_blank');
-    return;
-  }
-
   const fromCity = document.getElementById('fromCity')?.value.trim();
   const toCity = document.getElementById('toCity')?.value.trim();
   const departDate = document.getElementById('departDate')?.value;
@@ -25,7 +19,7 @@ function sendToWhatsApp() {
   const tripType = document.querySelector('input[name="tripType"]:checked')?.value || 'Round Trip';
 
   if (!fromCity || !toCity || !departDate || !custName || !custEmail || !custPhone) {
-    alert("Please fill out all required fields (including your email and phone) before submitting.");
+    alert("Please fill out all required fields before submitting your flight inquiry.");
     return;
   }
 
@@ -55,7 +49,7 @@ function sendViaEmail() {
   const tripType = document.querySelector('input[name="tripType"]:checked')?.value || 'Round Trip';
 
   if (!fromCity || !toCity || !departDate || !custName || !custEmail || !custPhone) {
-    alert("Please fill out all required fields (including your email and phone) before submitting.");
+    alert("Please fill out all required fields before submitting your flight inquiry.");
     return;
   }
 
@@ -71,6 +65,54 @@ function sendViaEmail() {
     `Departure Date: ${departDate}\n` +
     `Return Date: ${returnDate}\n` +
     `Passengers: ${passengers}`
+  );
+
+  window.location.href = `mailto:${CONTACT_CONFIG.EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+}
+
+// --- GENERAL CONTACT FORM HANDLERS ---
+function sendGeneralToWhatsApp() {
+  const name = document.getElementById('contactName')?.value.trim();
+  const email = document.getElementById('contactEmail')?.value.trim();
+  const phone = document.getElementById('contactPhone')?.value.trim();
+  const service = document.getElementById('serviceType')?.value;
+  const msg = document.getElementById('contactMessage')?.value.trim() || 'No additional details provided.';
+
+  if (!name || !email || !phone) {
+    alert("Please fill out your name, email, and phone number.");
+    return;
+  }
+
+  const message = `*GENERAL INQUIRY - NURAAN WORLD TRAVEL*%0A%0A` +
+    ` *Name:* ${encodeURIComponent(name)}%0A` +
+    ` *Email:* ${encodeURIComponent(email)}%0A` +
+    ` *Phone:* ${encodeURIComponent(phone)}%0A` +
+    ` *Service:* ${encodeURIComponent(service)}%0A` +
+    ` *Message:* ${encodeURIComponent(msg)}`;
+
+  window.open(`https://wa.me/${CONTACT_CONFIG.PRIMARY_WHATSAPP}?text=${message}`, '_blank');
+}
+
+function sendGeneralViaEmail() {
+  const name = document.getElementById('contactName')?.value.trim();
+  const email = document.getElementById('contactEmail')?.value.trim();
+  const phone = document.getElementById('contactPhone')?.value.trim();
+  const service = document.getElementById('serviceType')?.value;
+  const msg = document.getElementById('contactMessage')?.value.trim() || 'No additional details provided.';
+
+  if (!name || !email || !phone) {
+    alert("Please fill out your name, email, and phone number.");
+    return;
+  }
+
+  const subject = encodeURIComponent(`${service} Inquiry from ${name}`);
+  const body = encodeURIComponent(
+    `General Service Inquiry:\n\n` +
+    `Name: ${name}\n` +
+    `Email: ${email}\n` +
+    `Phone: ${phone}\n` +
+    `Requested Service: ${service}\n\n` +
+    `Message:\n${msg}`
   );
 
   window.location.href = `mailto:${CONTACT_CONFIG.EMAIL_ADDRESS}?subject=${subject}&body=${body}`;

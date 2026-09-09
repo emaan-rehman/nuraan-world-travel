@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact & Flight Inquiry - Nuraan World Travel</title>
-  
+  <title>Contact Us - Nuraan World Travel</title>
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -34,7 +34,7 @@
       </nav>
 
       <div class="nav-actions">
-        <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp-sm">
+        <button type="button" onclick="sendGeneralToWhatsApp()" class="btn btn-whatsapp-sm">
           <i class="fa-brands fa-whatsapp"></i> Direct Chat
         </button>
         <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Toggle Menu">
@@ -47,101 +47,67 @@
   <!-- PAGE HEADER -->
   <section class="section-padding bg-alt">
     <div class="section-container text-center">
-      <h1 class="section-title">Request a Custom Flight Quote</h1>
-      <p class="section-subtitle">Fill in your travel preferences below. Our flight desk will generate direct fare options sent to WhatsApp or Email.</p>
+      <h1 class="section-title">Get In Touch With Our Travel Desk</h1>
+      <p class="section-subtitle">Have questions about Visas, Hotel Bookings, or Travel Packages? Submit your query below.</p>
     </div>
   </section>
 
-  <!-- MAIN FORM & CONTACT DETAILS GRID -->
+  <!-- MAIN CONTACT GRID -->
   <section class="section-padding">
     <div class="section-container contact-grid">
       
-      <!-- Flight Booking Inquiry Form -->
+      <!-- General Service Inquiry Form -->
       <div class="booking-card">
-        <form id="flightForm" onsubmit="event.preventDefault();">
+        <form id="generalForm" onsubmit="event.preventDefault();">
           
-          <!-- Trip Type Selector -->
-          <div class="trip-selector">
-            <label class="radio-option">
-              <input type="radio" name="tripType" value="Round Trip" checked>
-              <span>Round Trip</span>
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="tripType" value="One Way">
-              <span>One Way</span>
-            </label>
-          </div>
-
-          <!-- Origin & Destination -->
+          <!-- Contact Name & Email -->
           <div class="form-row grid-2">
             <div class="input-group">
-              <label for="fromCity">From (Origin)</label>
-              <div class="input-wrapper">
-                <i class="fa-solid fa-plane-departure input-icon"></i>
-                <input type="text" id="fromCity" required placeholder="City or Airport (e.g. London)">
-              </div>
+              <label for="contactName">Your Full Name</label>
+              <input type="text" id="contactName" required>
             </div>
 
             <div class="input-group">
-              <label for="toCity">To (Destination)</label>
+              <label for="contactEmail">Email Address</label>
               <div class="input-wrapper">
-                <i class="fa-solid fa-plane-arrival input-icon"></i>
-                <input type="text" id="toCity" required placeholder="City or Airport (e.g. Dubai)">
+                <input type="email" id="contactEmail" required >
               </div>
             </div>
           </div>
 
-          <!-- Dates & Passengers -->
-          <div class="form-row grid-3">
+          <!-- Phone & Service Type Selection -->
+          <div class="form-row grid-2">
             <div class="input-group">
-              <label for="departDate">Departure Date</label>
-              <input type="date" id="departDate" required>
-            </div>
-
-            <div class="input-group" id="returnDateGroup">
-              <label for="returnDate">Return Date</label>
-              <input type="date" id="returnDate">
+              <label for="contactPhone">WhatsApp / Phone Number</label>
+              <input type="tel" id="contactPhone" required >
             </div>
 
             <div class="input-group">
-              <label for="passengers">Passengers</label>
-              <select id="passengers">
-                <option value="1 Adult">1 Adult</option>
-                <option value="2 Adults">2 Adults</option>
-                <option value="Family (2 Adults, 2 Kids)">Family</option>
+              <label for="serviceType">Select Service Required</label>
+              <select id="serviceType" required>
+                <option value="Visa Consultation">Visa Consultation & Assistance</option>
+                <option value="Hotel Reservation">Hotel Reservation</option>
+                <option value="Custom Holiday Package">Custom Holiday Package</option>
+                <option value="Travel Insurance">Travel Insurance</option>
+                <option value="General Inquiry">General Inquiry</option>
               </select>
             </div>
           </div>
 
-          <!-- Contact Details Section (With Email/Gmail Field) -->
-          <div class="contact-divider">
-            <div class="form-row grid-3">
-              <div class="input-group">
-                <label for="custName">Your Full Name</label>
-                <input type="text" id="custName" required placeholder="John Doe">
-              </div>
-
-              <div class="input-group">
-                <label for="custEmail">Email Address / Gmail</label>
-                <div class="input-wrapper">
-                  <i class="fa-solid fa-envelope input-icon"></i>
-                  <input type="email" id="custEmail" required placeholder="example@gmail.com">
-                </div>
-              </div>
-
-              <div class="input-group">
-                <label for="custPhone">WhatsApp / Phone</label>
-                <input type="tel" id="custPhone" required placeholder="+27 64 981 6443">
-              </div>
+          <!-- Message Field -->
+          <div class="form-row">
+            <div class="input-group">
+              <label for="contactMessage">Your Query / Requirements</label>
+              <textarea id="contactMessage" rows="4" placeholder="Tell us about your trip destination, travel dates, or visa requirements..."></textarea>
             </div>
           </div>
 
           <!-- Action Buttons -->
           <div class="btn-grid">
-            <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp">
+            <button type="button" onclick="sendGeneralToWhatsApp()" class="btn btn-whatsapp">
               <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
             </button>
-            <button type="button" onclick="sendViaEmail()" class="btn btn-gold">
+            <button type="button" onclick="sendGeneralViaEmail()" class="btn btn-gold">
               <i class="fa-solid fa-envelope"></i> Send via Email
             </button>
           </div>
@@ -151,7 +117,7 @@
 
       <!-- Desk Office Info Sidebar -->
       <div class="step-card contact-sidebar">
-        <h3 class="step-title text-gold contact-sidebar-title">Flight Desk Info</h3>
+        <h3 class="step-title text-gold contact-sidebar-title">Flight & Travel Desk</h3>
         
         <ul class="footer-contact-list contact-info-list">
           <li class="contact-info-item">
@@ -178,13 +144,6 @@
           </li>
         </ul>
 
-        <div class="contact-hours-block">
-          <strong class="contact-label">Desk Hours</strong>
-          <p class="contact-hours-text">
-            Monday – Saturday: 08:00 AM – 06:00 PM<br>
-            WhatsApp Desk: 24/7 Response
-          </p>
-        </div>
       </div>
 
     </div>

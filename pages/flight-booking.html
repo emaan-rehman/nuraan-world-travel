@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Booking & Reservations - Nuraan World Travel</title>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-link">
+        <img src="../assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="nav-logo">
+        <span class="brand-name">NURAAN WORLD TRAVEL</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="flight-booking.html" class="nav-link active">Flights</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="visa-services.html" class="nav-link">Visa Services</a>
+        <a href="travel-services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp-sm">
+          <i class="fa-brands fa-whatsapp"></i> Direct Chat
+        </button>
+        <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="section-padding bg-alt">
+    <div class="section-container text-center">
+      <h1 class="section-title">Search & Reserve Flights</h1>
+      <p class="section-subtitle">Submit your exact flight details to get real-time price quotes sent directly to your WhatsApp or Email.</p>
+    </div>
+  </section>
+
+  <!-- FLIGHT INQUIRY FORM SECTION -->
+  <section class="section-padding">
+    <div class="section-container" style="max-width: 850px;">
+      <div class="booking-card">
+        <form id="flightForm" onsubmit="event.preventDefault();">
+          
+          <!-- Trip Type Selector -->
+          <div class="trip-selector">
+            <label class="radio-option">
+              <input type="radio" name="tripType" value="Round Trip" checked>
+              <span>Round Trip</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tripType" value="One Way">
+              <span>One Way</span>
+            </label>
+          </div>
+
+          <!-- Origin & Destination -->
+          <div class="form-row grid-2">
+            <div class="input-group">
+              <label for="fromCity">From (Origin)</label>
+              <div class="input-wrapper">
+               
+                <input type="text" id="fromCity" required >
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="toCity">To (Destination)</label>
+              <div class="input-wrapper">
+             
+                <input type="text" id="toCity" required >
+              </div>
+            </div>
+          </div>
+
+          <!-- Dates & Passengers -->
+          <div class="form-row grid-3">
+            <div class="input-group">
+              <label for="departDate">Departure Date</label>
+              <input type="date" id="departDate" required>
+            </div>
+
+            <div class="input-group" id="returnDateGroup">
+              <label for="returnDate">Return Date</label>
+              <input type="date" id="returnDate">
+            </div>
+
+            <div class="input-group">
+              <label for="passengers">Passengers</label>
+              <select id="passengers">
+                <option value="1 Adult">1 Adult</option>
+                <option value="2 Adults">2 Adults</option>
+                <option value="Family (with Kids)">Family</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="contact-divider">
+            <div class="form-row grid-3">
+              <div class="input-group">
+                <label for="custName">Your Full Name</label>
+                <input type="text" id="custName" required >
+              </div>
+
+              <div class="input-group">
+                <label for="custEmail">Email Address</label>
+                <div class="input-wrapper">
+              
+                  <input type="email" id="custEmail" required >
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="custPhone">WhatsApp / Phone</label>
+                <input type="tel" id="custPhone" required >
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="btn-grid">
+            <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+            </button>
+            <button type="button" onclick="sendViaEmail()" class="btn btn-gold">
+              <i class="fa-solid fa-envelope"></i> Send via Email
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-brand-link">
+          <img src="../assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="footer-logo">
+          <span class="brand-name">NURAAN WORLD TRAVEL</span>
+        </a>
+        <p class="footer-desc">
+          Your premier global travel agency specializing in direct flight reservations, custom itineraries, and visa consultation services worldwide.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="flight-booking.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Flight Booking</a></li>
+          <li><a href="about.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Our Services</h3>
+        <ul class="footer-links">
+          <li><a href="flight-booking.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Airline Reservations</a></li>
+          <li><a href="visa-services.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Visa Consultancy</a></li>
+          <li><a href="travel-services.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Hotel Booking</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Flight Desk Contact</h3>
+        <ul class="footer-contact-list">
+          <li><i class="fa-solid fa-location-dot text-gold"></i> 15 Scott Street Mall, Newcastle, South Africa</li>
+          <li><a href="tel:+27649816443" class="footer-contact-link"><i class="fa-solid fa-phone text-gold"></i> +27 64 981 6443</a></li>
+          <li><a href="mailto:nuraanworldtravel@gmail.com" class="footer-contact-link"><i class="fa-solid fa-envelope text-gold"></i> nuraanworldtravel@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Nuraan World Travel. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/whatsapp.js"></script>
+</body>
+</html>
