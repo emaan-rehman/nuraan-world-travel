@@ -29,6 +29,10 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* --- Navigation Header --- */
 .navbar {
   background-color: rgba(11, 14, 20, 0.95);
@@ -103,7 +107,7 @@ body {
   cursor: pointer;
 }
 
-/* --- Hero Section --- */
+/* --- Premium Hero Section --- */
 .hero-banner {
   position: relative;
   min-height: 80vh;
@@ -184,7 +188,7 @@ body {
   gap: 6px;
 }
 
-/* Hero Image Wrapper */
+/* Hero Image & Glass Badges */
 .hero-image-wrapper {
   position: relative;
   width: 100%;
@@ -274,7 +278,7 @@ body {
   color: var(--text-secondary);
 }
 
-/* --- Stats Bar --- */
+/* --- Trust Stats Bar --- */
 .stats-bar {
   background-color: var(--bg-card);
   border-bottom: 1px solid var(--border-subtle);
@@ -309,6 +313,7 @@ body {
 
 .bg-alt {
   background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .section-container {
@@ -420,6 +425,116 @@ body {
   color: var(--color-gold);
 }
 
+/* --- Booking & Contact Form Cards --- */
+.booking-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+}
+
+.trip-selector {
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.radio-option input[type="radio"] {
+  accent-color: var(--color-gold);
+}
+
+.form-row {
+  margin-bottom: 20px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.75rem;
+  color: var(--color-gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+select {
+  width: 100%;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.input-wrapper input {
+  padding-left: 36px;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--color-gold);
+}
+
+.contact-divider {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
 /* --- Buttons --- */
 .btn {
   padding: 12px 18px;
@@ -471,7 +586,7 @@ body {
   background-color: var(--color-gold-hover);
 }
 
-/* --- ENHANCED FOOTER STYLES --- */
+/* --- Enhanced Footer --- */
 .footer {
   background-color: #07090D;
   border-top: 1px solid var(--border-gold);
@@ -487,7 +602,6 @@ body {
   margin-bottom: 50px;
 }
 
-/* Column 1: Brand */
 .footer-brand-link {
   display: flex;
   align-items: center;
@@ -511,7 +625,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Social Links */
 .social-links {
   display: flex;
   gap: 12px;
@@ -543,7 +656,6 @@ body {
   color: var(--color-whatsapp);
 }
 
-/* Footer Column Headings */
 .footer-heading {
   font-size: 1.05rem;
   color: #ffffff;
@@ -563,7 +675,6 @@ body {
   background-color: var(--color-gold);
 }
 
-/* Footer Link Lists */
 .footer-links {
   list-style: none;
   display: flex;
@@ -596,7 +707,6 @@ body {
   transform: translateX(3px);
 }
 
-/* Contact List */
 .footer-contact-list {
   list-style: none;
   display: flex;
@@ -620,7 +730,6 @@ body {
   color: var(--color-gold);
 }
 
-/* Newsletter Input */
 .footer-newsletter {
   background-color: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -672,7 +781,6 @@ body {
   background-color: var(--color-gold-hover);
 }
 
-/* Bottom Copyright Bar */
 .footer-bottom {
   max-width: 1200px;
   margin: 0 auto;
@@ -703,4 +811,54 @@ body {
 
 .divider {
   color: var(--border-subtle);
+}
+
+/* --- Contact Page Structural Classes --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-sidebar {
+  padding: 30px;
+}
+
+.contact-sidebar-title {
+  margin-bottom: 20px;
+}
+
+.contact-info-list {
+  gap: 20px;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.contact-icon {
+  margin-top: 4px;
+}
+
+.contact-label {
+  color: #ffffff;
+  display: block;
+  font-size: 0.85rem;
+}
+
+.contact-hours-block {
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+.contact-hours-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
 }
