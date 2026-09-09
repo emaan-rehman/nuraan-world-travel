@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuraan World Travel - Premium Flight Booking & World Travel</title>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/logo.png" alt="Nuraan World Travel Logo" class="nav-logo">
+        <span class="brand-name">NURAAN WORLD TRAVEL</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="pages/flight-booking.html" class="nav-link">Flights</a>
+        <a href="pages/destinations.html" class="nav-link">Destinations</a>
+        <a href="pages/visa-services.html" class="nav-link">Visa Services</a>
+        <a href="pages/travel-services.html" class="nav-link">Services</a>
+        <a href="pages/about.html" class="nav-link">About</a>
+        <a href="pages/contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp-sm">
+          <i class="fa-brands fa-whatsapp"></i> Direct Chat
+        </button>
+        <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fa-solid fa-plane-up"></i> Custom Flight Reservations</span>
+      <h1 class="hero-title">Experience Seamless Global Flight Booking</h1>
+      <p class="hero-subtitle">Submit your exact route preferences and receive direct quotes via WhatsApp or Email.</p>
+      
+      <div class="hero-cta-group">
+        <a href="pages/contact.html" class="btn btn-gold btn-lg">
+          <i class="fa-solid fa-paper-plane"></i> Book A Flight Now
+        </a>
+        <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp btn-lg">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STATS BAR -->
+  <section class="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Global Airlines</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Direct Desk Support</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Custom Quotes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">Fast</span>
+        <span class="stat-label">WhatsApp Confirmation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US / SERVICE HIGHLIGHTS -->
+  <section class="section-padding">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Why Book With Nuraan World Travel</h2>
+        <p class="section-subtitle">No fixed packages or hidden fees—every flight quote is built around your specific itinerary.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number"><i class="fa-solid fa-headset text-gold"></i></div>
+          <h3 class="step-title">Personalized Flight Desk</h3>
+          <p class="step-desc">Fill out your travel details and our agents will find the best fares matching your exact dates and time slots.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number"><i class="fa-brands fa-whatsapp text-gold"></i></div>
+          <h3 class="step-title">Direct WhatsApp Quotes</h3>
+          <p class="step-desc">Receive real-time ticket options and price breakdowns directly on WhatsApp without dynamic price markups.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number"><i class="fa-solid fa-ticket text-gold"></i></div>
+          <h3 class="step-title">Instant E-Ticket Issuance</h3>
+          <p class="step-desc">Once you confirm your preferred flight choice, receive your official airline reservation straight to your email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-STEP BOOKING PROCESS -->
+  <section class="section-padding bg-alt">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">How To Book Your Flight</h2>
+        <p class="section-subtitle">Follow three easy steps to submit your inquiry and complete your reservation.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Fill Inquiry Form</h3>
+          <p class="step-desc">Go to our Contact page and enter your route, travel dates, passenger count, and contact info.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Send to WhatsApp or Email</h3>
+          <p class="step-desc">Click either button to transmit your request straight to our desk for immediate processing.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Confirm & Fly</h3>
+          <p class="step-desc">Review your fare options, complete payment, and get your verified e-ticket delivered instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION SECTION -->
+  <section class="section-padding">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about booking with Nuraan World Travel.</p>
+      </div>
+
+      <div class="accordion-wrapper">
+        <div class="accordion-item">
+          <button type="button" class="accordion-header">
+            <span>How do I request a custom flight fare?</span>
+            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <p>Simply navigate to our Contact page, enter your departure city, destination, and travel dates, then click "Send via WhatsApp" or "Send via Email."</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button type="button" class="accordion-header">
+            <span>Are there fixed package prices listed?</span>
+            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <p>No, we generate real-time live quotes for every user query to ensure you get the lowest available fare at the exact moment of booking.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button type="button" class="accordion-header">
+            <span>How do I receive my ticket after payment?</span>
+            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <p>Your official airline e-ticket and PNR confirmation code will be sent directly to your WhatsApp number and Email inbox.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="brand-name">NURAAN WORLD TRAVEL</span>
+        <p>Your trusted flight desk for global travel, ticket reservations, and visa consultations.</p>
+      </div>
+      <p class="footer-copyright">© 2026 Nuraan World Travel. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/accordion.js"></script>
+  <script src="assets/js/whatsapp.js"></script>
+</body>
+</html>
