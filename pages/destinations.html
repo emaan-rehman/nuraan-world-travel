@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popular Destinations - Nuraan World Travel</title>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-link">
+        <img src="../assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="nav-logo">
+        <span class="brand-name">NURAAN WORLD TRAVEL</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="flight-booking.html" class="nav-link">Flights</a>
+        <a href="destinations.html" class="nav-link active">Destinations</a>
+        <a href="visa-services.html" class="nav-link">Visa Services</a>
+        <a href="travel-services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp-sm">
+          <i class="fa-brands fa-whatsapp"></i> Direct Chat
+        </button>
+        <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="section-padding bg-alt page-hero">
+    <div class="section-container text-center">
+      <span class="hero-badge"><i class="fa-solid fa-earth-americas text-gold"></i> Global Routes</span>
+      <h1 class="section-title page-hero-title">Explore Top <span class="text-gradient-gold">Global Destinations</span></h1>
+      <p class="section-subtitle page-hero-sub">Get direct live flight quotes for world-class cities, vacation hubs, and business centers.</p>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS GRID SECTION -->
+  <section class="section-padding">
+    <div class="section-container">
+      
+      <!-- Category Filter Pills -->
+      <div class="destination-filters">
+        <button type="button" class="dest-filter-btn active" onclick="filterDestinations('all')">All Destinations</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('middle-east')">Middle East</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('europe')">Europe</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('asia')">Asia & Far East</button>
+      </div>
+
+      <!-- Destination Cards Grid -->
+      <div class="destinations-grid" id="destinationsGrid">
+        
+        <!-- Dubai -->
+        <div class="destination-card" data-category="middle-east">
+          <div class="dest-image-box">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop" alt="Dubai skyline" class="dest-img">
+            <span class="dest-tag">Middle East</span>
+          </div>
+          <div class="dest-card-body">
+            <h3 class="dest-title">Dubai, UAE</h3>
+            <p class="dest-desc">Direct connections & flexible baggage allowances across top international carriers.</p>
+            <div class="dest-card-footer">
+              <button type="button" onclick="inquireDestination('Dubai (DXB)')" class="btn btn-gold btn-sm">
+                <i class="fa-solid fa-plane"></i> Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- London -->
+        <div class="destination-card" data-category="europe">
+          <div class="dest-image-box">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800&auto=format&fit=crop" alt="London Big Ben" class="dest-img">
+            <span class="dest-tag">Europe</span>
+          </div>
+          <div class="dest-card-body">
+            <h3 class="dest-title">London, UK</h3>
+            <p class="dest-desc">Daily flights into Heathrow & Gatwick with competitive return fare rates.</p>
+            <div class="dest-card-footer">
+              <button type="button" onclick="inquireDestination('London (LHR)')" class="btn btn-gold btn-sm">
+                <i class="fa-solid fa-plane"></i> Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Istanbul -->
+        <div class="destination-card" data-category="europe">
+          <div class="dest-image-box">
+            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop" alt="Istanbul Hagia Sophia" class="dest-img">
+            <span class="dest-tag">Europe / Asia</span>
+          </div>
+          <div class="dest-card-body">
+            <h3 class="dest-title">Istanbul, Turkey</h3>
+            <p class="dest-desc">Popular layover and vacation spot connecting East and West seamlessly.</p>
+            <div class="dest-card-footer">
+              <button type="button" onclick="inquireDestination('Istanbul (IST)')" class="btn btn-gold btn-sm">
+                <i class="fa-solid fa-plane"></i> Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jeddah / Makkah -->
+        <div class="destination-card" data-category="middle-east">
+          <div class="dest-image-box">
+            <img src="https://images.unsplash.com/photo-1565552070098-00735f986361?q=80&w=800&auto=format&fit=crop" alt="Jeddah destination" class="dest-img">
+            <span class="dest-tag">Middle East</span>
+          </div>
+          <div class="dest-card-body">
+            <h3 class="dest-title">Jeddah, Saudi Arabia</h3>
+            <p class="dest-desc">Umrah and pilgrimage flight Desk support with group booking discounts.</p>
+            <div class="dest-card-footer">
+              <button type="button" onclick="inquireDestination('Jeddah (JED)')" class="btn btn-gold btn-sm">
+                <i class="fa-solid fa-plane"></i> Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bangkok -->
+        <div class="destination-card" data-category="asia">
+          <div class="dest-image-box">
+            <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800&auto=format&fit=crop" alt="Bangkok Thailand" class="dest-img">
+            <span class="dest-tag">Asia</span>
+          </div>
+          <div class="dest-card-body">
+            <h3 class="dest-title">Bangkok, Thailand</h3>
+            <p class="dest-desc">Exotic holiday travel fares with multiple airline choices available.</p>
+            <div class="dest-card-footer">
+              <button type="button" onclick="inquireDestination('Bangkok (BKK)')" class="btn btn-gold btn-sm">
+                <i class="fa-solid fa-plane"></i> Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kuala Lumpur -->
+        <div class="destination-card" data-category="asia">
+          <div class="dest-image-box">
+            <img src="https://images.unsplash.com/photo-1601058268499-e52658b8bb88?q=80&w=800&auto=format&fit=crop" alt="Kuala Lumpur Petronas Towers" class="dest-img">
+            <span class="dest-tag">Asia</span>
+          </div>
+          <div class="dest-card-body">
+            <h3 class="dest-title">Kuala Lumpur, Malaysia</h3>
+            <p class="dest-desc">Business and tourist flights with flexible booking options.</p>
+            <div class="dest-card-footer">
+              <button type="button" onclick="inquireDestination('Kuala Lumpur (KUL)')" class="btn btn-gold btn-sm">
+                <i class="fa-solid fa-plane"></i> Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM ROUTE BANNER -->
+  <section class="section-padding bg-alt">
+    <div class="section-container text-center">
+      <h2 class="section-title">Don't See Your Destination?</h2>
+      <p class="section-subtitle">We issue tickets to over 500+ airports around the globe. Tell us where you want to go!</p>
+      <div style="margin-top: 24px;">
+        <a href="flight-booking.html" class="btn btn-gold btn-lg btn-glow">
+          <i class="fa-solid fa-paper-plane"></i> Request Custom Route Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-brand-link">
+          <img src="../assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="footer-logo">
+          <span class="brand-name">NURAAN WORLD TRAVEL</span>
+        </a>
+        <p class="footer-desc">
+          Your premier global travel agency specializing in direct flight reservations, custom itineraries, and visa consultation services worldwide.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="flight-booking.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Flight Booking</a></li>
+          <li><a href="about.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Our Services</h3>
+        <ul class="footer-links">
+          <li><a href="flight-booking.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Airline Reservations</a></li>
+          <li><a href="visa-services.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Visa Consultancy</a></li>
+          <li><a href="travel-services.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Hotel Booking</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Flight Desk Contact</h3>
+        <ul class="footer-contact-list">
+          <li><i class="fa-solid fa-location-dot text-gold"></i> 15 Scott Street Mall, Newcastle, South Africa</li>
+          <li><a href="tel:+27649816443" class="footer-contact-link"><i class="fa-solid fa-phone text-gold"></i> +27 64 981 6443</a></li>
+          <li><a href="mailto:nuraanworldtravel@gmail.com" class="footer-contact-link"><i class="fa-solid fa-envelope text-gold"></i> nuraanworldtravel@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Nuraan World Travel. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/whatsapp.js"></script>
+  <script>
+    // Destination Category Filter Function
+    function filterDestinations(category) {
+      const buttons = document.querySelectorAll('.dest-filter-btn');
+      const cards = document.querySelectorAll('.destination-card');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Direct WhatsApp quote trigger for specific destination
+    function inquireDestination(destName) {
+      const message = `Hi Nuraan World Travel, I would like to request flight quote options for ${destName}.`;
+      window.open(`https://wa.me/27649816443?text=${encodeURIComponent(message)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
