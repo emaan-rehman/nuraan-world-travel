@@ -59,114 +59,598 @@
       
       <!-- Category Filter Pills -->
       <div class="destination-filters">
-        <button type="button" class="dest-filter-btn active" onclick="filterDestinations('all')">All Destinations</button>
-        <button type="button" class="dest-filter-btn" onclick="filterDestinations('middle-east')">Middle East</button>
-        <button type="button" class="dest-filter-btn" onclick="filterDestinations('europe')">Europe</button>
-        <button type="button" class="dest-filter-btn" onclick="filterDestinations('asia')">Asia & Far East</button>
+        <button type="button" class="dest-filter-btn active" onclick="filterDestinations('all', this)">All Destinations</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('africa', this)">Africa</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('middle-east', this)">Middle East</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('asia', this)">Asia & Far East</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('europe', this)">Europe</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('americas', this)">Americas</button>
+        <button type="button" class="dest-filter-btn" onclick="filterDestinations('oceania', this)">Oceania</button>
       </div>
 
       <!-- Destination Cards Grid -->
-      <div class="destinations-grid" id="destinationsGrid">
-        
-        <!-- Dubai -->
-        <div class="destination-card" data-category="middle-east">
-          <div class="dest-image-box">
-            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop" alt="Dubai skyline" class="dest-img">
-            <span class="dest-tag">Middle East</span>
-          </div>
-          <div class="dest-card-body">
-            <h3 class="dest-title">Dubai, UAE</h3>
-            <p class="dest-desc">Direct connections & flexible baggage allowances across top international carriers.</p>
-            <div class="dest-card-footer">
-              <button type="button" onclick="inquireDestination('Dubai (DXB)')" class="btn btn-gold btn-sm">
-                <i class="fa-solid fa-plane"></i> Get Quote
-              </button>
-            </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <!-- Australia -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="oceania">
+          <img src="../assets/images/destinations/australia.jpeg" alt="Australia" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Australia</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Australia')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
           </div>
         </div>
 
-        <!-- London -->
-        <div class="destination-card" data-category="europe">
-          <div class="dest-image-box">
-            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800&auto=format&fit=crop" alt="London Big Ben" class="dest-img">
-            <span class="dest-tag">Europe</span>
-          </div>
-          <div class="dest-card-body">
-            <h3 class="dest-title">London, UK</h3>
-            <p class="dest-desc">Daily flights into Heathrow & Gatwick with competitive return fare rates.</p>
-            <div class="dest-card-footer">
-              <button type="button" onclick="inquireDestination('London (LHR)')" class="btn btn-gold btn-sm">
-                <i class="fa-solid fa-plane"></i> Get Quote
-              </button>
-            </div>
+        <!-- Azerbaijan -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/azerbaijan.jpeg" alt="Azerbaijan" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Azerbaijan</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Azerbaijan')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
           </div>
         </div>
 
-        <!-- Istanbul -->
-        <div class="destination-card" data-category="europe">
-          <div class="dest-image-box">
-            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop" alt="Istanbul Hagia Sophia" class="dest-img">
-            <span class="dest-tag">Europe / Asia</span>
-          </div>
-          <div class="dest-card-body">
-            <h3 class="dest-title">Istanbul, Turkey</h3>
-            <p class="dest-desc">Popular layover and vacation spot connecting East and West seamlessly.</p>
-            <div class="dest-card-footer">
-              <button type="button" onclick="inquireDestination('Istanbul (IST)')" class="btn btn-gold btn-sm">
-                <i class="fa-solid fa-plane"></i> Get Quote
-              </button>
-            </div>
+        <!-- Bahrain -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="middle-east">
+          <img src="../assets/images/destinations/bahrain.jpeg" alt="Bahrain" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Bahrain</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Bahrain')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
           </div>
         </div>
 
-        <!-- Jeddah / Makkah -->
-        <div class="destination-card" data-category="middle-east">
-          <div class="dest-image-box">
-            <img src="https://images.unsplash.com/photo-1565552070098-00735f986361?q=80&w=800&auto=format&fit=crop" alt="Jeddah destination" class="dest-img">
-            <span class="dest-tag">Middle East</span>
-          </div>
-          <div class="dest-card-body">
-            <h3 class="dest-title">Jeddah, Saudi Arabia</h3>
-            <p class="dest-desc">Umrah and pilgrimage flight Desk support with group booking discounts.</p>
-            <div class="dest-card-footer">
-              <button type="button" onclick="inquireDestination('Jeddah (JED)')" class="btn btn-gold btn-sm">
-                <i class="fa-solid fa-plane"></i> Get Quote
-              </button>
-            </div>
+        <!-- Bangladesh -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/bangladesh.jpeg" alt="Bangladesh" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Bangladesh</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Bangladesh')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
           </div>
         </div>
 
-        <!-- Bangkok -->
-        <div class="destination-card" data-category="asia">
-          <div class="dest-image-box">
-            <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800&auto=format&fit=crop" alt="Bangkok Thailand" class="dest-img">
-            <span class="dest-tag">Asia</span>
-          </div>
-          <div class="dest-card-body">
-            <h3 class="dest-title">Bangkok, Thailand</h3>
-            <p class="dest-desc">Exotic holiday travel fares with multiple airline choices available.</p>
-            <div class="dest-card-footer">
-              <button type="button" onclick="inquireDestination('Bangkok (BKK)')" class="btn btn-gold btn-sm">
-                <i class="fa-solid fa-plane"></i> Get Quote
-              </button>
-            </div>
+        <!-- Brazil -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="americas">
+          <img src="../assets/images/destinations/brazil.jpeg" alt="Brazil" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Brazil</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Brazil')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
           </div>
         </div>
 
-        <!-- Kuala Lumpur -->
-        <div class="destination-card" data-category="asia">
-          <div class="dest-image-box">
-            <img src="https://images.unsplash.com/photo-1601058268499-e52658b8bb88?q=80&w=800&auto=format&fit=crop" alt="Kuala Lumpur Petronas Towers" class="dest-img">
-            <span class="dest-tag">Asia</span>
+        <!-- Cambodia -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/cambodia.jpeg" alt="Cambodia" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Cambodia</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Cambodia')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
           </div>
-          <div class="dest-card-body">
-            <h3 class="dest-title">Kuala Lumpur, Malaysia</h3>
-            <p class="dest-desc">Business and tourist flights with flexible booking options.</p>
-            <div class="dest-card-footer">
-              <button type="button" onclick="inquireDestination('Kuala Lumpur (KUL)')" class="btn btn-gold btn-sm">
-                <i class="fa-solid fa-plane"></i> Get Quote
-              </button>
-            </div>
+        </div>
+
+        <!-- Canada -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="americas">
+          <img src="../assets/images/destinations/canada.jpeg" alt="Canada" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Canada</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Canada')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- China -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/china.jpeg" alt="China" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">China</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('China')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Egypt -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/egypt.jpeg" alt="Egypt" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Egypt</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Egypt')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Eswatini -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/eswatini.jpeg" alt="Eswatini" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Eswatini</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Eswatini')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Ethiopia -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/ethiopia.jpeg" alt="Ethiopia" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Ethiopia</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Ethiopia')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- France -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/france.jpeg" alt="France" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">France</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('France')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Germany -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/germany.jpeg" alt="Germany" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Germany</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Germany')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- India -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/india.jpeg" alt="India" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">India</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('India')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Indonesia -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/indonesia.jpeg" alt="Indonesia" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Indonesia</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Indonesia')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Iran -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="middle-east">
+          <img src="../assets/images/destinations/iran.jpeg" alt="Iran" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Iran</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Iran')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Iraq -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="middle-east">
+          <img src="../assets/images/destinations/iraq.jpeg" alt="Iraq" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Iraq</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Iraq')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Italy -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/italy.jpeg" alt="Italy" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Italy</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Italy')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Japan -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/japan.jpeg" alt="Japan" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Japan</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Japan')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Kenya -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/kenya.jpeg" alt="Kenya" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Kenya</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Kenya')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Lesotho -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/lesotho.jpeg" alt="Lesotho" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Lesotho</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Lesotho')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Libya -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/libya.jpeg" alt="Libya" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Libya</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Libya')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Malaysia -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/malaysia.jpeg" alt="Malaysia" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Malaysia</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Malaysia')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Mauritius -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/mauritius.jpeg" alt="Mauritius" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Mauritius</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Mauritius')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Mexico -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="americas">
+          <img src="../assets/images/destinations/mexico.jpeg" alt="Mexico" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Mexico</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Mexico')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Morocco -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/morocco.jpeg" alt="Morocco" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Morocco</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Morocco')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Mozambique -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/mozambique.jpeg" alt="Mozambique" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Mozambique</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Mozambique')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Namibia -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/namibia.jpeg" alt="Namibia" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Namibia</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Namibia')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Netherlands -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/netherlands.jpeg" alt="Netherlands" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Netherlands</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Netherlands')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- New Zealand -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="oceania">
+          <img src="../assets/images/destinations/New Zealand.jpeg" alt="New Zealand" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">New Zealand</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('New Zealand')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Nigeria -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/nigeria.jpeg" alt="Nigeria" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Nigeria</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Nigeria')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Oman -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="middle-east">
+          <img src="../assets/images/destinations/oman.jpeg" alt="Oman" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Oman</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Oman')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Pakistan -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/pakistan.jpeg" alt="Pakistan" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Pakistan</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Pakistan')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Philippines -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/philippines.jpeg" alt="Philippines" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Philippines</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Philippines')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Portugal -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/portugal.jpeg" alt="Portugal" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Portugal</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Portugal')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Qatar -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="middle-east">
+          <img src="../assets/images/destinations/qatar.jpeg" alt="Qatar" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Qatar</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Qatar')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Romania -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/romania.jpeg" alt="Romania" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Romania</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Romania')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Saudi Arabia -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="middle-east">
+          <img src="../assets/images/destinations/Saudi Arabia.jpeg" alt="Saudi Arabia" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Saudi Arabia</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Saudi Arabia')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Singapore -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/singapore.jpeg" alt="Singapore" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Singapore</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Singapore')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- South Africa -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/South Africa.jpeg" alt="South Africa" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">South Africa</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('South Africa')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- South Korea -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/South Korea.jpeg" alt="South Korea" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">South Korea</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('South Korea')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Spain -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/spain.jpeg" alt="Spain" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Spain</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Spain')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Sri Lanka -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/Sri Lanka.jpeg" alt="Sri Lanka" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Sri Lanka</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Sri Lanka')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Syria -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="middle-east">
+          <img src="../assets/images/destinations/syria.jpeg" alt="Syria" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Syria</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Syria')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Tanzania -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/tanzania.jpeg" alt="Tanzania" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Tanzania</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Tanzania')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Thailand -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="asia">
+          <img src="../assets/images/destinations/thailand.jpeg" alt="Thailand" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Thailand</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Thailand')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Turkey -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/turkey.jpeg" alt="Turkey" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Turkey</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Turkey')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- United Arab Emirates -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="middle-east">
+          <img src="../assets/images/destinations/United Arab Emirates.jpeg" alt="United Arab Emirates" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">United Arab Emirates</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('United Arab Emirates')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- United Kingdom -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="europe">
+          <img src="../assets/images/destinations/United Kingdom.jpeg" alt="United Kingdom" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">United Kingdom</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('United Kingdom')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- United States -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="americas">
+          <img src="../assets/images/destinations/United States (USA).jpeg" alt="United States" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">United States</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('United States')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Uruguay -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="americas">
+          <img src="../assets/images/destinations/uruguay.jpeg" alt="Uruguay" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Uruguay</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Uruguay')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Zambia -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/zambia.jpeg" alt="Zambia" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Zambia</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Zambia')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
+          </div>
+        </div>
+
+        <!-- Zimbabwe -->
+        <div class="destination-card overflow-hidden rounded-xl shadow-md bg-white" data-category="africa">
+          <img src="../assets/images/destinations/zimbabwe.jpeg" alt="Zimbabwe" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <h3 class="text-lg font-bold">Zimbabwe</h3>
+            <button class="btn btn-sm btn-gold mt-3" onclick="inquireDestination('Zimbabwe')">
+              <i class="fa-solid fa-plane-departure"></i> Get Quote
+            </button>
           </div>
         </div>
 
@@ -180,7 +664,7 @@
       <h2 class="section-title">Don't See Your Destination?</h2>
       <p class="section-subtitle">We issue tickets to over 500+ airports around the globe. Tell us where you want to go!</p>
       <div style="margin-top: 24px;">
-        <a href="flight-booking.html" class="btn btn-gold btn-lg btn-glow">
+        <a href="contact.html" class="btn btn-gold btn-lg btn-glow">
           <i class="fa-solid fa-paper-plane"></i> Request Custom Route Quote
         </a>
       </div>
@@ -240,12 +724,14 @@
   <script src="../assets/js/whatsapp.js"></script>
   <script>
     // Destination Category Filter Function
-    function filterDestinations(category) {
+    function filterDestinations(category, element) {
       const buttons = document.querySelectorAll('.dest-filter-btn');
       const cards = document.querySelectorAll('.destination-card');
 
       buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      if (element) {
+        element.classList.add('active');
+      }
 
       cards.forEach(card => {
         if (category === 'all' || card.dataset.category === category) {
@@ -258,7 +744,7 @@
 
     // Direct WhatsApp quote trigger for specific destination
     function inquireDestination(destName) {
-      const message = `Hi Nuraan World Travel, I would like to request flight quote options for ${destName}.`;
+      const message = `Hi Nuraan World Travel, I would like to get information for ${destName}.`;
       window.open(`https://wa.me/27649816443?text=${encodeURIComponent(message)}`, '_blank');
     }
   </script>

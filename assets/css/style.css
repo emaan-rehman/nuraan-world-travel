@@ -189,7 +189,6 @@ body {
 }
 
 /* Hero Image & Glass Badges */
-/* Make image wrapper stretch wider with a landscape aspect ratio */
 .hero-image-wrapper {
   position: relative;
   width: 100%;
@@ -201,7 +200,7 @@ body {
 
 .hero-image {
   width: 100%;
-  height: 320px; /* Reduced from 420px to make it wider in aspect ratio */
+  height: 320px;
   object-fit: cover;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -817,7 +816,7 @@ select:focus {
 /* --- Contact Page Structural Classes --- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Changed from 1.3fr 0.7fr */
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
 }
@@ -881,6 +880,7 @@ textarea {
   transition: var(--transition-fast);
   resize: vertical;
 }
+
 /* Invert native date picker icon color for dark themes */
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(5deg) brightness(1.2);
@@ -930,6 +930,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 .about-mission-desc {
   margin-bottom: 24px;
 }
+
 /* --- About Page Design Enhancements --- */
 .page-hero {
   border-bottom: 1px solid var(--border-gold);
@@ -992,7 +993,8 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   gap: 16px;
   flex-wrap: wrap;
 }
-/* --- Destinations Page Styles --- */
+
+/* --- Destinations Page & Utility Helper Classes --- */
 .destination-filters {
   display: flex;
   justify-content: center;
@@ -1090,3 +1092,75 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   padding: 8px 14px;
   font-size: 0.85rem;
 }
+
+/* Fallback Grid & Layout Utilities for HTML pages using Tailwind-style utility classes */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+.bg-white {
+  background-color: var(--bg-card) !important;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
+  color: #ffffff;
+}
+
