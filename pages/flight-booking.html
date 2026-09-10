@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flight Booking & Reservations - Nuraan World Travel</title>
- <link rel="icon" type="image/x-jpeg" href="../assets/images/logo.jpeg">
+  <link rel="icon" type="image/x-jpeg" href="../assets/images/logo.jpeg">
+  
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -44,71 +45,122 @@
   </header>
 
   <!-- PAGE HEADER -->
- <section class="section-padding bg-alt page-hero">
-  <div class="section-container text-center">
-    <span class="hero-badge"><i class="fa-solid fa-plane-up text-gold"></i> Direct Reservations</span>
-    <h1 class="section-title page-hero-title">Search & Reserve <span class="text-gradient-gold">Flights</span></h1>
-    <p class="section-subtitle page-hero-sub">Submit your exact flight details to get real-time price quotes sent directly to your WhatsApp or Email.</p>
-  </div>
-</section>
+  <section class="section-padding bg-alt page-hero">
+    <div class="section-container text-center">
+      <span class="hero-badge"><i class="fa-solid fa-plane-up text-gold"></i> Direct Reservations</span>
+      <h1 class="section-title page-hero-title">Search & Reserve <span class="text-gradient-gold">Flights</span></h1>
+      <p class="section-subtitle page-hero-sub">Submit your exact flight details to get real-time price quotes sent directly to your WhatsApp or Email.</p>
+    </div>
+  </section>
 
   <!-- FLIGHT INQUIRY FORM SECTION -->
   <section class="section-padding">
-    <div class="section-container" style="max-width: 850px;">
+    <div class="section-container" style="max-width: 900px;">
       <div class="booking-card">
         <form id="flightForm" onsubmit="event.preventDefault();">
           
-          <!-- Trip Type Selector -->
+          <!-- 1. Trip Type Selector -->
           <div class="trip-selector">
             <label class="radio-option">
-              <input type="radio" name="tripType" value="Round Trip" checked>
-              <span>Round Trip</span>
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="tripType" value="One Way">
+              <input type="radio" name="tripType" value="One Way" checked onclick="handleTripTypeChange('oneway')">
               <span>One Way</span>
             </label>
+            <label class="radio-option">
+              <input type="radio" name="tripType" value="Round Trip" onclick="handleTripTypeChange('roundtrip')">
+              <span>Roundtrip / Return</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tripType" value="Multi-City" onclick="handleTripTypeChange('multicity')">
+              <span>Multi-City</span>
+            </label>
           </div>
 
-          <!-- Origin & Destination -->
-          <div class="form-row grid-2">
-            <div class="input-group">
-              <label for="fromCity">From (Origin)</label>
-              <div class="input-wrapper">
-               
-                <input type="text" id="fromCity" required >
+          <!-- 2. Standard Flight Fields (One-Way / Roundtrip) -->
+          <div id="standardFlightFields">
+            <div class="form-row grid-2">
+              <div class="input-group">
+                <label for="fromCity">From (Origin)</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-plane-departure input-icon"></i>
+                  <input type="text" id="fromCity" placeholder="City or Airport">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="toCity">To (Destination)</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-plane-arrival input-icon"></i>
+                  <input type="text" id="toCity" placeholder="City or Airport">
+                </div>
               </div>
             </div>
 
-            <div class="input-group">
-              <label for="toCity">To (Destination)</label>
-              <div class="input-wrapper">
-             
-                <input type="text" id="toCity" required >
+            <div class="form-row grid-3">
+              <div class="input-group">
+                <label for="departDate">Departure Date</label>
+                <input type="date" id="departDate">
+              </div>
+
+              <div class="input-group" id="returnDateGroup" style="display: none;">
+                <label for="returnDate">Return Date</label>
+                <input type="date" id="returnDate">
+              </div>
+
+              <!-- Passenger Counter Popover Dropdown -->
+              <div class="input-group passenger-dropdown-wrapper">
+                <label>Passengers</label>
+                <button type="button" class="passenger-selector-btn" onclick="togglePassengerPopover(event)">
+                  <span id="passengerSummaryText">1 Adult</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="passenger-popover" id="passengerPopover">
+                  <div class="passenger-row">
+                    <div class="passenger-label">
+                      <strong>Adults</strong>
+                      <span>12+ years</span>
+                    </div>
+                    <div class="counter-controls">
+                      <button type="button" class="btn-counter" onclick="adjustPassenger('adults', -1)">-</button>
+                      <span class="counter-value" id="adultsCount">1</span>
+                      <button type="button" class="btn-counter" onclick="adjustPassenger('adults', 1)">+</button>
+                    </div>
+                  </div>
+
+                  <div class="passenger-row">
+                    <div class="passenger-label">
+                      <strong>Children</strong>
+                      <span>2 - 11 years</span>
+                    </div>
+                    <div class="counter-controls">
+                      <button type="button" class="btn-counter" onclick="adjustPassenger('children', -1)">-</button>
+                      <span class="counter-value" id="childrenCount">0</span>
+                      <button type="button" class="btn-counter" onclick="adjustPassenger('children', 1)">+</button>
+                    </div>
+                  </div>
+
+                  <div class="passenger-row">
+                    <div class="passenger-label">
+                      <strong>Infants</strong>
+                      <span>Under 2 years</span>
+                    </div>
+                    <div class="counter-controls">
+                      <button type="button" class="btn-counter" onclick="adjustPassenger('infants', -1)">-</button>
+                      <span class="counter-value" id="infantsCount">0</span>
+                      <button type="button" class="btn-counter" onclick="adjustPassenger('infants', 1)">+</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Dates & Passengers -->
-          <div class="form-row grid-3">
-            <div class="input-group">
-              <label for="departDate">Departure Date</label>
-              <input type="date" id="departDate" required>
-            </div>
-
-            <div class="input-group" id="returnDateGroup">
-              <label for="returnDate">Return Date</label>
-              <input type="date" id="returnDate">
-            </div>
-
-            <div class="input-group">
-              <label for="passengers">Passengers</label>
-              <select id="passengers">
-                <option value="1 Adult">1 Adult</option>
-                <option value="2 Adults">2 Adults</option>
-                <option value="Family (with Kids)">Family</option>
-              </select>
-            </div>
+          <!-- 3. Multi-City Fields Container -->
+          <div id="multiCityContainer" style="display: none;">
+            <div id="multiCityRows"></div>
+            <button type="button" class="btn-add-city" onclick="addMultiCityRow()">
+              <i class="fa-solid fa-plus"></i> Add City
+            </button>
           </div>
 
           <!-- Contact Details -->
@@ -116,20 +168,19 @@
             <div class="form-row grid-3">
               <div class="input-group">
                 <label for="custName">Your Full Name</label>
-                <input type="text" id="custName" required >
+                <input type="text" id="custName" placeholder="John Doe" required>
               </div>
 
               <div class="input-group">
                 <label for="custEmail">Email Address</label>
                 <div class="input-wrapper">
-              
-                  <input type="email" id="custEmail" required >
+                  <input type="email" id="custEmail" placeholder="name@example.com" required>
                 </div>
               </div>
 
               <div class="input-group">
                 <label for="custPhone">WhatsApp / Phone</label>
-                <input type="tel" id="custPhone" required >
+                <input type="tel" id="custPhone" placeholder="+27 00 000 0000" required>
               </div>
             </div>
           </div>
@@ -200,5 +251,109 @@
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/ui.js"></script>
   <script src="../assets/js/whatsapp.js"></script>
+
+  <!-- Interactive Flight Form Logic -->
+  <script>
+    let passengerState = { adults: 1, children: 0, infants: 0 };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      disablePastDates();
+      initMultiCity();
+
+      // Close passenger popover when clicking outside
+      document.addEventListener('click', (e) => {
+        const popover = document.getElementById('passengerPopover');
+        const selectorBtn = document.querySelector('.passenger-selector-btn');
+        if (popover && !popover.contains(e.target) && !selectorBtn.contains(e.target)) {
+          popover.classList.remove('active');
+        }
+      });
+    });
+
+    // Disable past dates in date inputs
+    function disablePastDates() {
+      const today = new Date().toISOString().split('T')[0];
+      const dateInputs = document.querySelectorAll('input[type="date"]');
+      dateInputs.forEach(input => input.setAttribute('min', today));
+    }
+
+    // Toggle Trip Types (One-Way, Roundtrip, Multi-City)
+    function handleTripTypeChange(type) {
+      const standardFields = document.getElementById('standardFlightFields');
+      const returnDateGroup = document.getElementById('returnDateGroup');
+      const multiCityContainer = document.getElementById('multiCityContainer');
+
+      if (type === 'oneway') {
+        standardFields.style.display = 'block';
+        returnDateGroup.style.display = 'none';
+        multiCityContainer.style.display = 'none';
+      } else if (type === 'roundtrip') {
+        standardFields.style.display = 'block';
+        returnDateGroup.style.display = 'block';
+        multiCityContainer.style.display = 'none';
+      } else if (type === 'multicity') {
+        standardFields.style.display = 'none';
+        multiCityContainer.style.display = 'block';
+      }
+    }
+
+    // Passenger Counter Controls
+    function togglePassengerPopover(event) {
+      event.stopPropagation();
+      const popover = document.getElementById('passengerPopover');
+      popover.classList.toggle('active');
+    }
+
+    function adjustPassenger(type, change) {
+      if (type === 'adults' && passengerState.adults + change < 1) return;
+      if (passengerState[type] + change < 0) return;
+
+      passengerState[type] += change;
+      document.getElementById(`${type}Count`).innerText = passengerState[type];
+      updatePassengerSummary();
+    }
+
+    function updatePassengerSummary() {
+      let parts = [];
+      parts.push(`${passengerState.adults} ${passengerState.adults > 1 ? 'Adults' : 'Adult'}`);
+      if (passengerState.children > 0) parts.push(`${passengerState.children} ${passengerState.children > 1 ? 'Children' : 'Child'}`);
+      if (passengerState.infants > 0) parts.push(`${passengerState.infants} ${passengerState.infants > 1 ? 'Infants' : 'Infant'}`);
+      
+      document.getElementById('passengerSummaryText').innerText = parts.join(', ');
+    }
+
+    // Multi-City Dynamic Rows
+    function initMultiCity() {
+      const rowsContainer = document.getElementById('multiCityRows');
+      rowsContainer.innerHTML = '';
+      addMultiCityRow();
+      addMultiCityRow();
+    }
+
+    function addMultiCityRow() {
+      const container = document.getElementById('multiCityRows');
+      const today = new Date().toISOString().split('T')[0];
+      const rowIndex = container.children.length + 1;
+      const row = document.createElement('div');
+      row.className = 'multi-city-row';
+      
+      row.innerHTML = `
+        <div class="input-group">
+          <label>From</label>
+          <input type="text" class="mc-origin" placeholder="Origin City" required>
+        </div>
+        <div class="input-group">
+          <label>To</label>
+          <input type="text" class="mc-destination" placeholder="Destination City" required>
+        </div>
+        <div class="input-group">
+          <label>Departure Date</label>
+          <input type="date" class="mc-date" required min="${today}">
+        </div>
+        ${rowIndex > 2 ? `<button type="button" class="btn-remove-city" onclick="this.parentElement.remove()"><i class="fa-solid fa-trash"></i></button>` : '<div></div>'}
+      `;
+      container.appendChild(row);
+    }
+  </script>
 </body>
 </html>

@@ -1260,3 +1260,179 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   font-weight: 700;
   color: #ffffff;
 }
+/* ==========================================================================
+   11. FLIGHT BOOKING FORM & MULTI-CITY EXTENSIONS
+   ========================================================================== */
+
+/* Trip Type Selector Spacing */
+.trip-selector {
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.radio-option input[type="radio"] {
+  accent-color: var(--color-gold);
+}
+
+/* Multi-City Dynamic Rows */
+.multi-city-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 40px;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.btn-remove-city {
+  background: rgba(220, 53, 69, 0.2);
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  height: 42px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.btn-remove-city:hover {
+  background: #dc3545;
+  color: #ffffff;
+}
+
+.btn-add-city {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px dashed var(--color-gold);
+  color: var(--color-gold);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  transition: var(--transition-fast);
+}
+
+.btn-add-city:hover {
+  background: var(--color-gold);
+  color: var(--text-dark);
+}
+
+/* Passenger Selector Popover */
+.passenger-dropdown-wrapper {
+  position: relative;
+}
+
+.passenger-selector-btn {
+  width: 100%;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.passenger-selector-btn:focus,
+.passenger-selector-btn:hover {
+  border-color: var(--color-gold);
+}
+
+.passenger-popover {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 280px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: none;
+}
+
+.passenger-popover.active {
+  display: block;
+}
+
+.passenger-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.passenger-row:last-child {
+  margin-bottom: 0;
+}
+
+.passenger-label strong {
+  display: block;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.passenger-label span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Counter Control Buttons */
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-counter {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.btn-counter:hover {
+  background: var(--color-gold);
+  color: var(--text-dark);
+}
+
+.counter-value {
+  font-weight: 700;
+  width: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
