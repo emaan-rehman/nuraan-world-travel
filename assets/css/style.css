@@ -1,6 +1,6 @@
-/* assets/css/style.css */
-
-/* --- Reset & Global Base --- */
+/* ==========================================================================
+   1. RESET & GLOBAL BASE
+   ========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,13 +18,15 @@ body {
   line-height: 1.5;
 }
 
-/* Helper Utilities */
+/* ==========================================================================
+   2. HELPER UTILITIES
+   ========================================================================== */
 .text-gold {
   color: var(--color-gold) !important;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #FFFFFF 30%, #D4AF37 100%);
+  background: linear-gradient(135deg, #ffffff 30%, #d4af37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -33,7 +35,21 @@ body {
   text-align: center;
 }
 
-/* --- Navigation Header --- */
+.text-left {
+  text-align: left;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.divider {
+  color: var(--border-subtle);
+}
+
+/* ==========================================================================
+   3. NAVIGATION HEADER
+   ========================================================================== */
 .navbar {
   background-color: rgba(11, 14, 20, 0.95);
   border-bottom: 1px solid var(--border-gold);
@@ -107,13 +123,17 @@ body {
   cursor: pointer;
 }
 
-/* --- Premium Hero Section --- */
+/* ==========================================================================
+   4. HERO SECTIONS & BADGES
+   ========================================================================== */
+/* Premium Main Hero Banner */
 .hero-banner {
   position: relative;
   min-height: 80vh;
-  background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-              radial-gradient(circle at 90% 80%, rgba(30, 105, 184, 0.08) 0%, transparent 50%),
-              #0B0E14;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(30, 105, 184, 0.08) 0%, transparent 50%),
+    #0b0e14;
   display: flex;
   align-items: center;
   padding: 60px 20px;
@@ -163,14 +183,6 @@ body {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-}
-
-.btn-glow {
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
-}
-
-.btn-glow:hover {
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.55);
 }
 
 .hero-trust-bar {
@@ -278,7 +290,120 @@ body {
   color: var(--text-secondary);
 }
 
-/* --- Trust Stats Bar --- */
+/* Secondary Page Hero */
+.page-hero {
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(11, 14, 20, 0.88) 0%, rgba(11, 14, 20, 0.98) 100%),
+    url('../images/visa-services-hero.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  overflow: hidden;
+  padding: 50px 20px;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.page-hero-title {
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+
+.page-hero-sub {
+  max-width: 650px;
+  margin: 10px auto 0;
+}
+
+/* ==========================================================================
+   5. BUTTONS & INTERACTIVE ELEMENTS
+   ========================================================================== */
+.btn {
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.btn-sm {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+.btn-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.55);
+}
+
+.btn-whatsapp {
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--color-whatsapp-hover);
+}
+
+.btn-whatsapp-sm {
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+}
+
+.btn-whatsapp-sm:hover {
+  background-color: var(--color-whatsapp-hover);
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  color: var(--text-dark);
+}
+
+.btn-gold:hover {
+  background-color: var(--color-gold-hover);
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* ==========================================================================
+   6. STATS & SECTION WRAPPERS
+   ========================================================================== */
 .stats-bar {
   background-color: var(--bg-card);
   border-bottom: 1px solid var(--border-subtle);
@@ -306,7 +431,6 @@ body {
   color: var(--text-secondary);
 }
 
-/* --- Content Sections & Grids --- */
 .section-padding {
   padding: 70px 20px;
 }
@@ -337,6 +461,7 @@ body {
   font-size: 0.95rem;
 }
 
+/* Process / Step Cards */
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -425,7 +550,9 @@ body {
   color: var(--color-gold);
 }
 
-/* --- Booking & Contact Form Cards --- */
+/* ==========================================================================
+   7. FORMS & INPUT CONTROLS
+   ========================================================================== */
 .booking-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-gold);
@@ -489,6 +616,10 @@ body {
   position: relative;
 }
 
+.input-wrapper input {
+  padding-left: 36px;
+}
+
 .input-icon {
   position: absolute;
   left: 12px;
@@ -499,9 +630,11 @@ body {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="date"],
 input[type="tel"],
-select {
+select,
+textarea {
   width: 100%;
   background-color: var(--bg-dark);
   border: 1px solid var(--border-subtle);
@@ -511,15 +644,24 @@ select {
   font-size: 0.95rem;
   outline: none;
   transition: var(--transition-fast);
-}
-
-.input-wrapper input {
-  padding-left: 36px;
+  resize: vertical;
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   border-color: var(--color-gold);
+}
+
+/* Native Date Picker Customization */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(5deg) brightness(1.2);
+  cursor: pointer;
+  opacity: 1;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(1);
 }
 
 .contact-divider {
@@ -528,67 +670,11 @@ select:focus {
   margin-top: 10px;
 }
 
-.btn-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 24px;
-}
-
-/* --- Buttons --- */
-.btn {
-  padding: 12px 18px;
-  border-radius: var(--radius-md);
-  border: none;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-decoration: none;
-  transition: var(--transition-fast);
-}
-
-.btn-lg {
-  padding: 14px 28px;
-  font-size: 1rem;
-}
-
-.btn-whatsapp {
-  background-color: var(--color-whatsapp);
-  color: #ffffff;
-}
-
-.btn-whatsapp:hover {
-  background-color: var(--color-whatsapp-hover);
-}
-
-.btn-whatsapp-sm {
-  background-color: var(--color-whatsapp);
-  color: #ffffff;
-  padding: 8px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.8rem;
-}
-
-.btn-whatsapp-sm:hover {
-  background-color: var(--color-whatsapp-hover);
-}
-
-.btn-gold {
-  background-color: var(--color-gold);
-  color: var(--text-dark);
-}
-
-.btn-gold:hover {
-  background-color: var(--color-gold-hover);
-}
-
-/* --- Enhanced Footer --- */
+/* ==========================================================================
+   8. FOOTER SECTION
+   ========================================================================== */
 .footer {
-  background-color: #07090D;
+  background-color: #07090d;
   border-top: 1px solid var(--border-gold);
   padding: 60px 20px 20px;
 }
@@ -809,11 +895,11 @@ select:focus {
   color: var(--color-gold);
 }
 
-.divider {
-  color: var(--border-subtle);
-}
+/* ==========================================================================
+   9. PAGE-SPECIFIC COMPONENTS
+   ========================================================================== */
 
-/* --- Contact Page Structural Classes --- */
+/* --- Contact Page --- */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -863,45 +949,7 @@ select:focus {
   margin-top: 4px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="date"],
-input[type="tel"],
-select,
-textarea {
-  width: 100%;
-  background-color: var(--bg-dark);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  padding: 10px 14px;
-  border-radius: var(--radius-md);
-  font-size: 0.95rem;
-  outline: none;
-  transition: var(--transition-fast);
-  resize: vertical;
-}
-
-/* Invert native date picker icon color for dark themes */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(5deg) brightness(1.2);
-  cursor: pointer;
-  opacity: 1;
-}
-
-/* Fallback hover effect */
-input[type="date"]::-webkit-calendar-picker-indicator:hover {
-  filter: invert(1);
-}
-
-/* --- About Page Dedicated Classes --- */
-.text-left {
-  text-align: left;
-}
-
-.align-center {
-  align-items: center;
-}
-
+/* --- About Page --- */
 .about-story-heading {
   font-size: 2.2rem;
 }
@@ -929,22 +977,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .about-mission-desc {
   margin-bottom: 24px;
-}
-
-/* --- About Page Design Enhancements --- */
-.page-hero {
-  border-bottom: 1px solid var(--border-gold);
-  padding: 50px 20px;
-}
-
-.page-hero-title {
-  font-size: 2.5rem;
-  margin-top: 10px;
-}
-
-.page-hero-sub {
-  max-width: 650px;
-  margin: 10px auto 0;
 }
 
 .about-section-heading {
@@ -994,7 +1026,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   flex-wrap: wrap;
 }
 
-/* --- Destinations Page & Utility Helper Classes --- */
+/* --- Destinations Page --- */
 .destination-filters {
   display: flex;
   justify-content: center;
@@ -1088,12 +1120,77 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   justify-content: flex-end;
 }
 
-.btn-sm {
-  padding: 8px 14px;
-  font-size: 0.85rem;
+/* --- Premium Travel Services Grid --- */
+.service-card {
+  background: rgba(19, 25, 36, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Fallback Grid & Layout Utilities for HTML pages using Tailwind-style utility classes */
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+.service-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--color-gold);
+  font-size: 1.35rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon-box {
+  transform: scale(1.08);
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--color-gold);
+}
+
+.service-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.service-btn {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* ==========================================================================
+   10. LAYOUT & UTILITY FALLBACKS
+   ========================================================================== */
 .grid {
   display: grid;
 }
@@ -1163,4 +1260,3 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   font-weight: 700;
   color: #ffffff;
 }
-
