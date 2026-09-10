@@ -561,27 +561,6 @@ body {
   box-shadow: var(--shadow-card);
 }
 
-.trip-selector {
-  display: flex;
-  gap: 24px;
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 16px;
-  margin-bottom: 24px;
-}
-
-.radio-option {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.radio-option input[type="radio"] {
-  accent-color: var(--color-gold);
-}
-
 .form-row {
   margin-bottom: 20px;
 }
@@ -1026,7 +1005,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   flex-wrap: wrap;
 }
 
-/* --- Destinations Page --- */
+/* --- Destinations Page Grid & Filters --- */
 .destination-filters {
   display: flex;
   justify-content: center;
@@ -1054,10 +1033,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   border-color: var(--color-gold);
 }
 
-.destinations-grid {
+.destinations-grid,
+#destinationsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  width: 100%;
 }
 
 .destination-card {
@@ -1065,6 +1046,11 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
   transition: var(--transition-fast);
 }
 
@@ -1077,6 +1063,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   position: relative;
   height: 200px;
   width: 100%;
+  overflow: hidden;
 }
 
 .dest-img {
@@ -1100,6 +1087,10 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .dest-card-body {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .dest-title {
@@ -1120,7 +1111,15 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   justify-content: flex-end;
 }
 
-/* --- Premium Travel Services Grid --- */
+/* --- Visa & Travel Services Grid --- */
+.services-grid,
+#servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
 .service-card {
   background: rgba(19, 25, 36, 0.7);
   border: 1px solid rgba(212, 175, 55, 0.15);
@@ -1129,6 +1128,8 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
+  width: 100%;
   backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
@@ -1260,6 +1261,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   font-weight: 700;
   color: #ffffff;
 }
+
 /* ==========================================================================
    11. FLIGHT BOOKING FORM & MULTI-CITY EXTENSIONS
    ========================================================================== */
@@ -1435,4 +1437,3 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   text-align: center;
   color: #ffffff;
 }
-

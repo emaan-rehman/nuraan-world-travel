@@ -201,5 +201,28 @@
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/ui.js"></script>
   <script src="../assets/js/whatsapp.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedDest = urlParams.get('destination');
+  const selectedService = urlParams.get('service');
+  
+  const messageField = document.getElementById('contactMessage');
+  const serviceDropdown = document.getElementById('serviceType');
+
+  if (selectedDest && messageField) {
+    messageField.value = `Hi Nuraan World Travel, I would like to inquire about booking a flight / travel package to ${selectedDest}.`;
+  }
+
+  if (selectedService) {
+    if (serviceDropdown) {
+      serviceDropdown.value = selectedService;
+    }
+    if (messageField) {
+      messageField.value = `Hi Nuraan World Travel, I would like to inquire about your ${selectedService} service.`;
+    }
+  }
+});
+  </script>
 </body>
 </html>
