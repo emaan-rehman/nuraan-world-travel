@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Travel Services - Nuraan World Travel</title>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-link">
+        <img src="../assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="nav-logo">
+        <span class="brand-name">NURAAN WORLD TRAVEL</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="flight-booking.html" class="nav-link">Flights</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="visa-services.html" class="nav-link">Visa Services</a>
+        <a href="travel-services.html" class="nav-link active">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp-sm">
+          <i class="fa-brands fa-whatsapp"></i> Direct Chat
+        </button>
+        <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="section-padding bg-alt page-hero">
+    <div class="section-container text-center">
+      <span class="hero-badge"><i class="fa-solid fa-concierge-bell text-gold"></i> Premium Travel Solutions</span>
+      <h1 class="section-title page-hero-title">Our Specialized <span class="text-gradient-gold">Travel Services</span></h1>
+      <p class="section-subtitle page-hero-sub">Comprehensive assistance tailored to your journeys, from bookings and itineraries to visa applications and insurance cover.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID SECTION -->
+  <section class="section-padding">
+    <div class="section-container">
+      
+      <!-- Category Filter Pills -->
+      <div class="destination-filters">
+        <button type="button" class="dest-filter-btn active" onclick="filterServices('all', this)">All Services</button>
+        <button type="button" class="dest-filter-btn" onclick="filterServices('travel', this)">Travel & Accommodation</button>
+        <button type="button" class="dest-filter-btn" onclick="filterServices('visa', this)">Visa Solutions</button>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Hotel & Accommodation Booking -->
+        <div class="destination-card p-4 flex flex-col justify-between" data-category="travel">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-hotel text-gold text-2xl"></i>
+              <h3 class="text-lg font-bold">Hotel & Accommodation Booking</h3>
+            </div>
+            <p class="dest-desc">Reservation assistance for luxury hotels, budget stays, and family apartments with verified bookings tailored to your itinerary.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold mt-3" onclick="inquireService('Hotel & Accommodation Booking')">
+            <i class="fa-brands fa-whatsapp"></i> Book / Inquire
+          </button>
+        </div>
+
+        <!-- Customized Travel Itineraries -->
+        <div class="destination-card p-4 flex flex-col justify-between" data-category="travel">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-route text-gold text-2xl"></i>
+              <h3 class="text-lg font-bold">Customized Travel Itineraries</h3>
+            </div>
+            <p class="dest-desc">Personalized day-by-day travel plans designed around your budget, schedule, and preferences for seamless global trips.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold mt-3" onclick="inquireService('Customized Travel Itineraries')">
+            <i class="fa-brands fa-whatsapp"></i> Plan Itinerary
+          </button>
+        </div>
+
+        <!-- Travel & Medical Insurance -->
+        <div class="destination-card p-4 flex flex-col justify-between" data-category="travel">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-shield-halved text-gold text-2xl"></i>
+              <h3 class="text-lg font-bold">Travel & Medical Insurance</h3>
+            </div>
+            <p class="dest-desc">Comprehensive travel insurance coverage for flight delays, medical emergencies, lost baggage, and embassy visa compliance.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold mt-3" onclick="inquireService('Travel & Medical Insurance')">
+            <i class="fa-brands fa-whatsapp"></i> Get Insurance
+          </button>
+        </div>
+
+        <!-- Umrah Travel Assistance -->
+        <div class="destination-card p-4 flex flex-col justify-between" data-category="travel">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-kaaba text-gold text-2xl"></i>
+              <h3 class="text-lg font-bold">Umrah Travel Assistance</h3>
+            </div>
+            <p class="dest-desc">End-to-end guidance for holy pilgrimages, including ground transfers, hotel bookings near the Haram, flight tickets, and visa processing.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold mt-3" onclick="inquireService('Umrah Travel Assistance')">
+            <i class="fa-brands fa-whatsapp"></i> Plan Umrah
+          </button>
+        </div>
+
+        <!-- Tourist Visa Consultation -->
+        <div class="destination-card p-4 flex flex-col justify-between" data-category="visa">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-passport text-gold text-2xl"></i>
+              <h3 class="text-lg font-bold">Tourist Visa Consultation</h3>
+            </div>
+            <p class="dest-desc">Expert assessment and guidance on vacation visa eligibility, required documentation, and processing timelines worldwide.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold mt-3" onclick="inquireService('Tourist Visa Consultation')">
+            <i class="fa-brands fa-whatsapp"></i> Consult Specialist
+          </button>
+        </div>
+
+        <!-- Visit & Family Visa Assistance -->
+        <div class="destination-card p-4 flex flex-col justify-between" data-category="visa">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-users text-gold text-2xl"></i>
+              <h3 class="text-lg font-bold">Visit & Family Visa Assistance</h3>
+            </div>
+            <p class="dest-desc">Full support for visiting relatives or friends abroad, including sponsorship paperwork check and invitation letter formatting.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold mt-3" onclick="inquireService('Visit & Family Visa Assistance')">
+            <i class="fa-brands fa-whatsapp"></i> Apply / Inquire
+          </button>
+        </div>
+
+        <!-- Schengen Visa Guidance -->
+        <div class="destination-card p-4 flex flex-col justify-between" data-category="visa">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-earth-europe text-gold text-2xl"></i>
+              <h3 class="text-lg font-bold">Schengen Visa Guidance</h3>
+            </div>
+            <p class="dest-desc">Step-by-step guidance for European entry across 27 countries, covering cover letter drafting, flight itineraries, and VFS/TLS appointments.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold mt-3" onclick="inquireService('Schengen Visa Guidance')">
+            <i class="fa-brands fa-whatsapp"></i> Get Guidance
+          </button>
+        </div>
+
+        <!-- Visa File & Document Preparation -->
+        <div class="destination-card p-4 flex flex-col justify-between" data-category="visa">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <i class="fa-solid fa-file-signature text-gold text-2xl"></i>
+              <h3 class="text-lg font-bold">Visa File & Document Preparation</h3>
+            </div>
+            <p class="dest-desc">Meticulous organization and auditing of your entire visa application file to ensure complete embassy checklist compliance.</p>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold mt-3" onclick="inquireService('Visa File & Document Preparation')">
+            <i class="fa-brands fa-whatsapp"></i> Prepare File
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM ASSISTANCE CTA -->
+  <section class="section-padding bg-alt">
+    <div class="section-container text-center">
+      <h2 class="section-title">Ready to Start Planning Your Trip?</h2>
+      <p class="section-subtitle">Reach out directly to our team to get customized service quotes and expert guidance.</p>
+      <div style="margin-top: 24px;">
+        <button type="button" onclick="sendToWhatsApp()" class="btn btn-whatsapp btn-lg btn-glow">
+          <i class="fa-brands fa-whatsapp"></i> Chat with Our Travel Desk
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-brand-link">
+          <img src="../assets/images/logo.jpeg" alt="Nuraan World Travel Logo" class="footer-logo">
+          <span class="brand-name">NURAAN WORLD TRAVEL</span>
+        </a>
+        <p class="footer-desc">
+          Your premier global travel agency specializing in direct flight reservations, custom itineraries, and visa consultation services worldwide.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="flight-booking.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Flight Booking</a></li>
+          <li><a href="about.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Our Services</h3>
+        <ul class="footer-links">
+          <li><a href="flight-booking.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Airline Reservations</a></li>
+          <li><a href="visa-services.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Visa Consultancy</a></li>
+          <li><a href="travel-services.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Hotel Booking</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-heading">Flight Desk Contact</h3>
+        <ul class="footer-contact-list">
+          <li><i class="fa-solid fa-location-dot text-gold"></i> 15 Scott Street Mall, Newcastle, South Africa</li>
+          <li><a href="tel:+27649816443" class="footer-contact-link"><i class="fa-solid fa-phone text-gold"></i> +27 64 981 6443</a></li>
+          <li><a href="mailto:nuraanworldtravel@gmail.com" class="footer-contact-link"><i class="fa-solid fa-envelope text-gold"></i> nuraanworldtravel@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Nuraan World Travel. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/whatsapp.js"></script>
+  <script>
+    // Service Category Filter Function
+    function filterServices(category, element) {
+      const buttons = document.querySelectorAll('.dest-filter-btn');
+      const cards = document.querySelectorAll('[data-category]');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (element) {
+        element.classList.add('active');
+      }
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Direct WhatsApp quote trigger for specific Service
+    function inquireService(serviceName) {
+      const message = `Hi Nuraan World Travel, I would like to inquire about your ${serviceName} service.`;
+      window.open(`https://wa.me/27649816443?text=${encodeURIComponent(message)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
