@@ -249,11 +249,18 @@
     </div>
   </footer>
 
-  <!-- JS Scripts -->
+<!-- EmailJS SDK Integration -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    // Replace with your actual EmailJS Public Key
+    emailjs.init("qmPB-syPdXJGVoAip");
+  })();
+</script>
+ <!-- JS Scripts -->
   <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/accordion.js"></script>
   <script src="../assets/js/whatsapp.js"></script>
-
   <!-- Interactive Flight Form Logic -->
   <script>
     let passengerState = { adults: 1, children: 0, infants: 0 };
