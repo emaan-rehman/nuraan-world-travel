@@ -1437,3 +1437,113 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   text-align: center;
   color: #ffffff;
 }
+/* ==========================================================================
+   MOVING AIRLINES MARQUEE TICKER
+   ========================================================================== */
+.airlines-moving-section {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+.airlines-header-wrapper {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+.airlines-section-title {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-weight: 800;
+}
+
+.airlines-section-sub {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Ticker Wrapper with Gradient Edge Fades */
+.airlines-ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/* Continuous Sliding Track */
+.airlines-ticker-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+  padding: 10px 0;
+}
+
+/* Pause animation on hover */
+.airlines-ticker-wrapper:hover .airlines-ticker-track {
+  animation-play-state: paused;
+}
+
+/* Individual Card Sizing inside Marquee */
+.airlines-ticker-track .airline-card {
+  flex: 0 0 auto;
+  width: 220px;
+  background: rgba(11, 14, 20, 0.9);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.airlines-ticker-track .airline-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+}
+
+.airline-logo-box {
+  width: 100%;
+  height: 52px;
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+}
+
+.airline-logo-box img {
+  max-height: 38px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.airline-card span {
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* Infinite Keyframe Motion */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
