@@ -361,3 +361,24 @@ img, video, iframe, canvas, svg {
     justify-content: flex-start;
   }
 }
+/* ==========================================================================
+   FIX FOR MOBILE INPUT OVERFLOW (DATE PICKERS & FORM INPUTS)
+   ========================================================================== */
+input[type="date"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  -webkit-appearance: none; /* Prevents iOS Safari default width overrides */
+}
+
+/* Ensure the input wrapper fits neatly inside booking card padding */
+.booking-card .input-wrapper,
+.booking-card .input-group {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
