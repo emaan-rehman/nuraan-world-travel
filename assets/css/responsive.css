@@ -17,6 +17,18 @@ img, video, iframe, canvas, svg {
   height: auto;
 }
 
+/* Prevent inputs from blowing out grid layouts */
+.booking-card,
+.form-row,
+.grid-2,
+.grid-3,
+.input-group,
+.input-wrapper {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
 /* --------------------------------------------------------------------------
    1. DESKTOP & LARGE SCREENS (Below 1200px)
    -------------------------------------------------------------------------- */
@@ -27,8 +39,8 @@ img, video, iframe, canvas, svg {
   .footer-container,
   .footer-bottom {
     max-width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .footer-container {
@@ -110,9 +122,28 @@ img, video, iframe, canvas, svg {
   .section-padding {
     padding: 45px 16px;
   }
-.brand-name{
-  font-size: 13px;
-}
+
+  /* Brand Title Scaling for Header */
+  .nav-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .brand-link {
+    gap: 8px;
+  }
+
+  .brand-name {
+    font-size: 0.82rem;
+    letter-spacing: 0px;
+    white-space: nowrap;
+  }
+
+  .nav-logo {
+    width: 36px;
+    height: 36px;
+  }
+
   .hero-title {
     font-size: 2.1rem;
     line-height: 1.2;
@@ -137,15 +168,15 @@ img, video, iframe, canvas, svg {
     background: transparent;
     border: 1px solid var(--border-gold);
     color: var(--color-gold);
-    font-size: 1.2rem;
-    padding: 8px 12px;
+    font-size: 1.1rem;
+    padding: 6px 10px;
     border-radius: var(--radius-md);
     cursor: pointer;
   }
 
   .nav-menu {
     position: fixed;
-    top: 68px; /* Height of Navbar header */
+    top: 64px; /* Height of Navbar header */
     left: 0;
     width: 100%;
     background-color: rgba(11, 14, 20, 0.98);
@@ -182,18 +213,57 @@ img, video, iframe, canvas, svg {
   #servicesGrid,
   .grid-2,
   .grid-3,
-  .btn-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .btn-grid,
+  .form-row.grid-2,
+  #dateFieldsRow {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
   }
 
   .booking-card {
-    padding: 20px 16px;
+    padding: 20px 14px;
+  }
+
+  .booking-card .input-group,
+  .booking-card .input-wrapper {
+    width: 100% !important;
+  }
+
+  /* Mobile Input & Date Picker iOS Fixes */
+  input[type="date"],
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 48px !important;
+    padding: 10px 14px 10px 38px !important;
+    font-size: 0.95rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Calendar icon positioning inside inputs */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    filter: invert(0.8) sepia(100%) saturate(500%) hue-rotate(5deg) brightness(1.2);
+    cursor: pointer;
   }
 
   .trip-selector {
     flex-wrap: wrap;
-    gap: 12px 20px;
+    gap: 12px 16px;
   }
 
   /* Multi-City Flight Rows */
@@ -268,47 +338,46 @@ img, video, iframe, canvas, svg {
   .airline-logo-box img {
     max-height: 32px;
   }
-
-  #dateFieldsRow.grid-2 {
-    grid-template-columns: 1fr !important;
-    gap: 16px;
-  }
-  
-  .input-wrapper input[type="date"] {
-    width: 100% !important;
-    min-height: 48px; /* Comfortable touch target for mobile devices */
-  }
 }
 
 /* --------------------------------------------------------------------------
-   4. MOBILE PHONES & SMALL SCREENS (Below 480px)
+   4. MOBILE PHONES & EXTRA SMALL SCREENS (Below 480px)
    -------------------------------------------------------------------------- */
 @media screen and (max-width: 480px) {
-  /* Brand Title Scaling */
+  /* Brand Title Auto-Scale to Fit Header Single Line */
+  .nav-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   .brand-name {
-    font-size: 0.85rem;
-    letter-spacing: 0.2px;
+    font-size: 0.75rem;
+    letter-spacing: -0.2px;
   }
 
   .nav-logo {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .btn-whatsapp-sm {
-    padding: 6px 10px;
-    font-size: 0.72rem;
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+
+  .nav-actions {
+    gap: 6px;
   }
 
   /* Hero Section Elements */
   .hero-title {
-    font-size: 1.7rem;
+    font-size: 1.65rem;
   }
 
   .hero-subtitle,
   .section-subtitle,
   .airlines-section-sub {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
   }
 
   .hero-cta-group {
@@ -322,7 +391,7 @@ img, video, iframe, canvas, svg {
   }
 
   .btn-lg {
-    padding: 12px 20px;
+    padding: 12px 18px;
   }
 
   /* Trust Indicators & Stats Bar */
