@@ -15,7 +15,15 @@ function sendViaEmail() {
   const custPhone = document.getElementById('custPhone')?.value.trim();
 
   if (!custName || !custEmail || !custPhone) {
-    alert("Please fill out your Name, Email Address, and Phone Number.");
+  Swal.fire({
+  title: 'Inquiry Submitted!',
+  text: 'Thank you! Your flight inquiry has been sent to info@nuraanworldtravel.com.',
+  icon: 'success',
+  confirmButtonText: 'OK',
+  confirmButtonColor: '#d4af37', // Gold button matching your theme
+  background: '#0b0e14',        // Dark card background matching your theme
+  color: '#ffffff'
+});
     return;
   }
 
@@ -75,14 +83,38 @@ function sendViaEmail() {
   if (typeof emailjs !== 'undefined') {
     emailjs.send(CONTACT_CONFIG.EMAILJS_SERVICE_ID, CONTACT_CONFIG.EMAILJS_TEMPLATE_ID, templateParams)
       .then(function(response) {
-        alert("Thank you! Your flight inquiry has been sent to info@nuraanworldtravel.com.");
+        Swal.fire({
+          title: 'Inquiry Submitted!',
+          text: 'Thank you! Your flight inquiry has been sent to info@nuraanworldtravel.com.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#d4af37',
+          background: '#0b0e14',
+          color: '#ffffff'
+        });
       })
       .catch(function(error) {
         console.error('EMAILJS ERROR:', error);
-        alert("Email sending failed. Error: " + JSON.stringify(error));
+        Swal.fire({
+          title: 'Error!',
+          text: 'Email sending failed. Error: ' + JSON.stringify(error),
+          icon: 'error',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#d4af37',
+          background: '#0b0e14',
+          color: '#ffffff'
+        });
       });
   } else {
-    alert("EmailJS SDK failed to load. Please refresh the page.");
+    Swal.fire({
+      title: 'Error!',
+      text: 'EmailJS SDK failed to load. Please refresh the page.',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#d4af37',
+      background: '#0b0e14',
+      color: '#ffffff'
+    });
   }
 }
 
@@ -95,7 +127,15 @@ function sendGeneralViaEmail() {
   const msg = document.getElementById('contactMessage')?.value.trim() || 'No details provided.';
 
   if (!name || !email || !phone) {
-    alert("Please fill out your Full Name, Email Address, and Phone Number.");
+    Swal.fire({
+      title: 'Missing Information',
+      text: 'Please fill out your Full Name, Email Address, and Phone Number.',
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#d4af37',
+      background: '#0b0e14',
+      color: '#ffffff'
+    });
     return;
   }
 
@@ -111,14 +151,38 @@ function sendGeneralViaEmail() {
   if (typeof emailjs !== 'undefined') {
     emailjs.send(CONTACT_CONFIG.EMAILJS_SERVICE_ID, CONTACT_CONFIG.EMAILJS_TEMPLATE_ID, templateParams)
       .then(function(response) {
-        alert("Thank you! Your inquiry has been sent to info@nuraanworldtravel.com.");
+    Swal.fire({
+  title: 'Inquiry Submitted!',
+  text: 'Thank you! Your flight inquiry has been sent to info@nuraanworldtravel.com.',
+  icon: 'success',
+  confirmButtonText: 'OK',
+  confirmButtonColor: '#d4af37', // Gold button matching your theme
+  background: '#0b0e14',        // Dark card background matching your theme
+  color: '#ffffff'
+});
       })
       .catch(function(error) {
         console.error('EMAILJS ERROR:', error);
-        alert("Email sending failed. Error: " + JSON.stringify(error));
+        Swal.fire({
+          title: 'Error!',
+          text: 'Email sending failed. Error: ' + JSON.stringify(error),
+          icon: 'error',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#d4af37',
+          background: '#0b0e14',
+          color: '#ffffff'
+        });
       });
   } else {
-    alert("EmailJS SDK failed to load. Please refresh the page.");
+    Swal.fire({
+      title: 'Error!',
+      text: 'EmailJS SDK failed to load. Please refresh the page.',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#d4af37',
+      background: '#0b0e14',
+      color: '#ffffff'
+    });
   }
 }
 
@@ -130,7 +194,15 @@ function sendToWhatsApp() {
   const custPhone = document.getElementById('custPhone')?.value.trim();
 
   if (!custName || !custEmail || !custPhone) {
-    alert("Please fill out your Name, Email, and Phone Number before submitting.");
+    Swal.fire({
+      title: 'Missing Information',
+      text: 'Please fill out your Name, Email, and Phone Number before submitting.',
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#d4af37',
+      background: '#0b0e14',
+      color: '#ffffff'
+    });
     return;
   }
 
@@ -182,7 +254,15 @@ function sendGeneralToWhatsApp() {
   const msg = document.getElementById('contactMessage')?.value.trim() || 'No additional details provided.';
 
   if (!name || !email || !phone) {
-    alert("Please fill out your Name, Email, and Phone number.");
+    Swal.fire({
+      title: 'Missing Information',
+      text: 'Please fill out your Name, Email, and Phone Number.',
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#d4af37',
+      background: '#0b0e14',
+      color: '#ffffff'
+    });
     return;
   }
 
