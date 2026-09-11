@@ -195,3 +195,10 @@ function sendGeneralToWhatsApp() {
 
   window.open(`https://wa.me/${CONTACT_CONFIG.PRIMARY_WHATSAPP}?text=${message}`, '_blank');
 }
+function sendToWhatsApp() {
+  const phoneNumber = "27649816443";
+  const message = encodeURIComponent("Hello Nuraan World Travel, I would like to inquire about a flight booking.");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  
+  window.open(whatsappUrl, "_blank");
+}
