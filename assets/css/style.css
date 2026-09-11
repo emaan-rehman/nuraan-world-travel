@@ -854,6 +854,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
   font-size: 0.82rem;
   color: var(--text-secondary);
 }

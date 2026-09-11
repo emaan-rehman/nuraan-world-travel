@@ -2,7 +2,7 @@
 const CONTACT_CONFIG = {
   PRIMARY_WHATSAPP: "27649816443",   
   SECONDARY_WHATSAPP: "27723526975", 
-  EMAIL_ADDRESS: "nuraanworldtravel@gmail.com",
+  EMAIL_ADDRESS: "info@nuraanworldtravel.com",
   EMAILJS_SERVICE_ID: "service_nuraan",   
   EMAILJS_TEMPLATE_ID: "template_nuraan"  
 };
@@ -75,7 +75,7 @@ function sendViaEmail() {
   if (typeof emailjs !== 'undefined') {
     emailjs.send(CONTACT_CONFIG.EMAILJS_SERVICE_ID, CONTACT_CONFIG.EMAILJS_TEMPLATE_ID, templateParams)
       .then(function(response) {
-        alert("Thank you! Your flight inquiry has been sent to nuraanworldtravel@gmail.com.");
+        alert("Thank you! Your flight inquiry has been sent to info@nuraanworldtravel.com.");
       })
       .catch(function(error) {
         console.error('EMAILJS ERROR:', error);
@@ -111,7 +111,7 @@ function sendGeneralViaEmail() {
   if (typeof emailjs !== 'undefined') {
     emailjs.send(CONTACT_CONFIG.EMAILJS_SERVICE_ID, CONTACT_CONFIG.EMAILJS_TEMPLATE_ID, templateParams)
       .then(function(response) {
-        alert("Thank you! Your inquiry has been sent to nuraanworldtravel@gmail.com.");
+        alert("Thank you! Your inquiry has been sent to info@nuraanworldtravel.com.");
       })
       .catch(function(error) {
         console.error('EMAILJS ERROR:', error);
