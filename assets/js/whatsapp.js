@@ -14,16 +14,17 @@ function sendViaEmail() {
   const custEmail = document.getElementById('custEmail')?.value.trim();
   const custPhone = document.getElementById('custPhone')?.value.trim();
 
+  // Validate personal info fields
   if (!custName || !custEmail || !custPhone) {
-  Swal.fire({
-  title: 'Inquiry Submitted!',
-  text: 'Thank you! Your flight inquiry has been sent to info@nuraanworldtravel.com.',
-  icon: 'success',
-  confirmButtonText: 'OK',
-  confirmButtonColor: '#d4af37', // Gold button matching your theme
-  background: '#0b0e14',        // Dark card background matching your theme
-  color: '#ffffff'
-});
+    Swal.fire({
+      title: 'Missing Information',
+      text: 'Please fill out your Full Name, Email Address, and Phone Number before submitting.',
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#d4af37',
+      background: '#0b0e14',
+      color: '#ffffff'
+    });
     return;
   }
 
@@ -46,7 +47,15 @@ function sendViaEmail() {
     });
 
     if (!isValid || multiCityLegs.length === 0) {
-      alert("Please complete all Origin, Destination, and Date fields for your Multi-City routes.");
+      Swal.fire({
+        title: 'Incomplete Route',
+        text: 'Please complete all Origin, Destination, and Date fields for your Multi-City routes.',
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#d4af37',
+        background: '#0b0e14',
+        color: '#ffffff'
+      });
       return;
     }
 
@@ -59,7 +68,15 @@ function sendViaEmail() {
     const returnDate = document.getElementById('returnDate')?.value.trim();
 
     if (!fromCity || !toCity || !departDate || (tripType === 'Round Trip' && !returnDate)) {
-      alert("Please fill out all required flight route and date fields.");
+      Swal.fire({
+        title: 'Missing Route Info',
+        text: 'Please fill out all required flight route and date fields.',
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#d4af37',
+        background: '#0b0e14',
+        color: '#ffffff'
+      });
       return;
     }
 
@@ -82,7 +99,7 @@ function sendViaEmail() {
 
   if (typeof emailjs !== 'undefined') {
     emailjs.send(CONTACT_CONFIG.EMAILJS_SERVICE_ID, CONTACT_CONFIG.EMAILJS_TEMPLATE_ID, templateParams)
-      .then(function(response) {
+      .then(function() {
         Swal.fire({
           title: 'Inquiry Submitted!',
           text: 'Thank you! Your flight inquiry has been sent to info@nuraanworldtravel.com.',
@@ -97,7 +114,7 @@ function sendViaEmail() {
         console.error('EMAILJS ERROR:', error);
         Swal.fire({
           title: 'Error!',
-          text: 'Email sending failed. Error: ' + JSON.stringify(error),
+          text: 'Email sending failed. Please try again or contact us via WhatsApp.',
           icon: 'error',
           confirmButtonText: 'OK',
           confirmButtonColor: '#d4af37',
@@ -150,22 +167,22 @@ function sendGeneralViaEmail() {
 
   if (typeof emailjs !== 'undefined') {
     emailjs.send(CONTACT_CONFIG.EMAILJS_SERVICE_ID, CONTACT_CONFIG.EMAILJS_TEMPLATE_ID, templateParams)
-      .then(function(response) {
-    Swal.fire({
-  title: 'Inquiry Submitted!',
-  text: 'Thank you! Your flight inquiry has been sent to info@nuraanworldtravel.com.',
-  icon: 'success',
-  confirmButtonText: 'OK',
-  confirmButtonColor: '#d4af37', // Gold button matching your theme
-  background: '#0b0e14',        // Dark card background matching your theme
-  color: '#ffffff'
-});
+      .then(function() {
+        Swal.fire({
+          title: 'Inquiry Submitted!',
+          text: 'Thank you! Your general inquiry has been sent to info@nuraanworldtravel.com.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#d4af37',
+          background: '#0b0e14',
+          color: '#ffffff'
+        });
       })
       .catch(function(error) {
         console.error('EMAILJS ERROR:', error);
         Swal.fire({
           title: 'Error!',
-          text: 'Email sending failed. Error: ' + JSON.stringify(error),
+          text: 'Email sending failed. Please try again or contact us via WhatsApp.',
           icon: 'error',
           confirmButtonText: 'OK',
           confirmButtonColor: '#d4af37',
@@ -274,11 +291,4 @@ function sendGeneralToWhatsApp() {
     ` *Message:* ${encodeURIComponent(msg)}`;
 
   window.open(`https://wa.me/${CONTACT_CONFIG.PRIMARY_WHATSAPP}?text=${message}`, '_blank');
-}
-function sendToWhatsApp() {
-  const phoneNumber = "27649816443";
-  const message = encodeURIComponent("Hello Nuraan World Travel, I would like to inquire about a flight booking.");
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-  
-  window.open(whatsappUrl, "_blank");
 }
