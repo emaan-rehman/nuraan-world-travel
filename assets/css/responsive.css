@@ -1,17 +1,25 @@
 /* ==========================================================================
-   NURAAN WORLD TRAVEL - COMPREHENSIVE RESPONSIVE STYLESHEET (responsive.css)
+   NURAAN WORLD TRAVEL - MASTER RESPONSIVE STYLESHEET (responsive.css)
    ========================================================================== */
 
-/* Global Overflow Protection */
+/* --------------------------------------------------------------------------
+   0. GLOBAL OVERFLOW PROTECTION & RESETS
+   -------------------------------------------------------------------------- */
 html, body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-/* ==========================================================================
+/* Ensure images and media elements never push containers wide */
+img, video, iframe, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
    1. DESKTOP & LARGE SCREENS (Below 1200px)
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 @media screen and (max-width: 1200px) {
   .nav-container,
   .hero-container,
@@ -27,20 +35,20 @@ html, body {
     grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr;
     gap: 30px;
   }
-  
+
   .airlines-header-wrapper {
     padding: 0 24px;
   }
 }
 
-/* ==========================================================================
-   2. LAPTOPS & SMALL DESKTOPS (Below 1024px)
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   2. LAPTOPS & TABLETS LANDSCAPE (Below 1024px)
+   -------------------------------------------------------------------------- */
 @media screen and (max-width: 1024px) {
-  /* Hero Layout Adjustments */
+  /* Hero Sections */
   .hero-banner {
     min-height: auto;
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
   .hero-container {
@@ -57,39 +65,48 @@ html, body {
   .hero-cta-group,
   .hero-trust-bar {
     justify-content: center;
-    flex-wrap: wrap;
   }
 
   .hero-image-wrapper {
     max-width: 650px;
     margin: 0 auto;
-    width: 100%;
   }
 
-  /* Grid Layout Fallbacks */
+  /* Grid Fallbacks */
   .stats-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
   }
 
   .destinations-grid,
-  .grid-cols-4,
+  #destinationsGrid,
+  .services-grid,
+  #servicesGrid,
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .contact-sidebar {
+    padding: 20px;
+  }
+
   .footer-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 36px;
   }
 }
 
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    3. TABLETS & PORTRAIT DEVICES (Below 768px)
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 @media screen and (max-width: 768px) {
-  /* Section Padding & Typography Scaling */
+  /* Section Padding & Global Typography Scaling */
   .section-padding {
     padding: 45px 16px;
   }
@@ -99,7 +116,9 @@ html, body {
     line-height: 1.2;
   }
 
-  .page-hero-title {
+  .page-hero-title,
+  .about-story-heading,
+  .about-section-heading {
     font-size: 1.85rem;
   }
 
@@ -108,8 +127,8 @@ html, body {
     font-size: 1.55rem;
   }
 
-  /* Mobile Navigation Drawer */
- .mobile-toggle {
+  /* Mobile Navigation Controls & Drawer */
+  .mobile-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,9 +141,9 @@ html, body {
     cursor: pointer;
   }
 
- .nav-menu {
+  .nav-menu {
     position: fixed;
-    top: 68px;
+    top: 68px; /* Height of Navbar header */
     left: 0;
     width: 100%;
     background-color: rgba(11, 14, 20, 0.98);
@@ -134,8 +153,9 @@ html, body {
     padding: 24px;
     gap: 16px;
     transform: translateY(-150%);
-    transition: transform 0.35s ease-in-out;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 9999;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
   }
 
   .nav-menu.active {
@@ -152,14 +172,15 @@ html, body {
     border-bottom: none;
   }
 
-  /* Form Grids, Contact & Service Cards */
+  /* Structural Cards & Grid Collapse */
+  .steps-grid,
+  .destinations-grid,
+  #destinationsGrid,
+  .services-grid,
+  #servicesGrid,
   .grid-2,
   .grid-3,
-  .grid-cols-4,
-  .btn-grid,
-  .contact-grid,
-  .steps-grid,
-  .destinations-grid {
+  .btn-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
@@ -194,7 +215,11 @@ html, body {
     left: 0;
   }
 
-  /* Floating Badges on Mobile */
+  /* Floating Badges Convert to Inline Block on Mobile */
+  .hero-image-wrapper {
+    overflow: visible;
+  }
+
   .floating-badge {
     position: relative;
     top: auto !important;
@@ -203,14 +228,19 @@ html, body {
     right: auto !important;
     margin: 12px auto 0;
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     justify-content: center;
   }
 
   /* Footer Layout */
+  .footer {
+    padding: 40px 16px 20px;
+  }
+
   .footer-container {
     grid-template-columns: 1fr;
     gap: 32px;
+    margin-bottom: 30px;
   }
 
   .footer-bottom {
@@ -219,14 +249,18 @@ html, body {
     text-align: center;
   }
 
-  /* Airline Ticker Mobile Width */
+  /* Airline Ticker Sizing Adjustments */
+  .airlines-moving-section {
+    padding: 36px 0;
+  }
+
   .airlines-ticker-track .airline-card {
     width: 180px;
     padding: 12px;
   }
 
   .airline-logo-box {
-    height: 48px;
+    height: 46px;
   }
 
   .airline-logo-box img {
@@ -234,18 +268,19 @@ html, body {
   }
 }
 
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    4. MOBILE PHONES & SMALL SCREENS (Below 480px)
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 @media screen and (max-width: 480px) {
+  /* Brand Title Scaling */
   .brand-name {
     font-size: 0.85rem;
     letter-spacing: 0.2px;
   }
 
   .nav-logo {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
   }
 
   .btn-whatsapp-sm {
@@ -253,8 +288,9 @@ html, body {
     font-size: 0.72rem;
   }
 
+  /* Hero Section Elements */
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 1.7rem;
   }
 
   .hero-subtitle,
@@ -273,11 +309,27 @@ html, body {
     justify-content: center;
   }
 
+  .btn-lg {
+    padding: 12px 20px;
+  }
+
+  /* Trust Indicators & Stats Bar */
   .stats-container {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .hero-trust-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Destination Filters Component */
   .destination-filters {
     flex-direction: column;
     align-items: stretch;
@@ -288,17 +340,24 @@ html, body {
     text-align: center;
   }
 
-  .hero-image {
-    height: 220px;
+  .dest-image-box {
+    height: 180px;
   }
 
+  /* Newsletter Form Controls */
   .newsletter-form {
     flex-direction: column;
   }
 
   .newsletter-btn {
     width: 100%;
-    border-radius: var(--radius-md);
     padding: 10px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Feature Pills on About Page */
+  .feature-pill {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
