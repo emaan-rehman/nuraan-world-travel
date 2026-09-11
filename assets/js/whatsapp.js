@@ -2,7 +2,7 @@
 const CONTACT_CONFIG = {
   PRIMARY_WHATSAPP: "27649816443",   
   SECONDARY_WHATSAPP: "27723526975", 
-  EMAIL_ADDRESS: "info@nuraanworldtravel.com",
+  EMAIL_ADDRESS: "nuraanworldtravel@gmail.com",
   EMAILJS_SERVICE_ID: "service_nuraan",   
   EMAILJS_TEMPLATE_ID: "template_nuraan"  
 };
