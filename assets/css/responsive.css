@@ -110,7 +110,9 @@ img, video, iframe, canvas, svg {
   .section-padding {
     padding: 45px 16px;
   }
-
+.brand-name{
+  font-size: 13px;
+}
   .hero-title {
     font-size: 2.1rem;
     line-height: 1.2;
