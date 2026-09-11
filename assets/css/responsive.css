@@ -266,6 +266,16 @@ img, video, iframe, canvas, svg {
   .airline-logo-box img {
     max-height: 32px;
   }
+
+  #dateFieldsRow.grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+  
+  .input-wrapper input[type="date"] {
+    width: 100% !important;
+    min-height: 48px; /* Comfortable touch target for mobile devices */
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -360,38 +370,4 @@ img, video, iframe, canvas, svg {
     width: 100%;
     justify-content: flex-start;
   }
-}
-/* ==========================================================================
-   PERFECT MOBILE INPUT SIZING FIX
-   ========================================================================== */
-/* Reset wrapper containers to take full width without squeezing */
-.booking-card .input-wrapper,
-.booking-card .input-group {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: visible !important;
-}
-
-/* Force all input fields to fill 100% width and match heights */
-input[type="date"],
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-select,
-textarea {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-height: 46px !important; /* Ensures comfortable touch target and height */
-  padding: 10px 14px !important;
-  box-sizing: border-box !important;
-  display: block !important;
-  font-size: 0.95rem !important;
-}
-
-/* Specific iOS Safari fix for date picker rendering */
-input[type="date"] {
-  position: relative;
-  background-color: var(--bg-dark) !important;
-  color: var(--text-primary) !important;
-  align-items: center;
 }

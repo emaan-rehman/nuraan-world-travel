@@ -147,17 +147,23 @@
               </div>
             </div>
 
-            <div class="form-row grid-2">
-              <div class="input-group">
-                <label for="departDate">Departure Date</label>
-                <input type="date" id="departDate">
-              </div>
+           <div class="form-row grid-2" id="dateFieldsRow">
+  <div class="input-group" id="departDateGroup">
+    <label for="departDate">Departure Date</label>
+    <div class="input-wrapper">
+      <i class="fa-solid fa-calendar-days input-icon"></i>
+      <input type="date" id="departDate" name="departDate" required>
+    </div>
+  </div>
 
-              <div class="input-group" id="returnDateGroup" style="display: none;">
-                <label for="returnDate">Return Date</label>
-                <input type="date" id="returnDate">
-              </div>
-            </div>
+  <div class="input-group" id="returnDateGroup" style="display: none;">
+    <label for="returnDate">Return Date</label>
+    <div class="input-wrapper">
+      <i class="fa-solid fa-calendar-days input-icon"></i>
+      <input type="date" id="returnDate" name="returnDate">
+    </div>
+  </div>
+</div>
           </div>
 
           <!-- Multi-City Fields Container -->
