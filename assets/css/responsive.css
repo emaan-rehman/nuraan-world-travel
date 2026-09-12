@@ -117,6 +117,7 @@ img, video, iframe, canvas, svg {
 /* --------------------------------------------------------------------------
    3. TABLETS & PORTRAIT DEVICES (Below 768px)
    -------------------------------------------------------------------------- */
+
 @media screen and (max-width: 768px) {
   /* Section Padding & Global Typography Scaling */
   .section-padding {
@@ -140,8 +141,8 @@ img, video, iframe, canvas, svg {
   }
 
   .nav-logo {
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
   }
 
   .hero-title {
