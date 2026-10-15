@@ -45,17 +45,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 /* ==========================================================================
-   HOME PAGE COMMENT & REVIEW SUBMISSION SYSTEM
+   GLOBAL CLOUDFLARE D1 COMMENT & REVIEW SYSTEM
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
+  const WORKER_API_URL = "https://nuraan-reviews-api.fly2worldtravels.workers.dev/"; 
   const reviewForm = document.getElementById("reviewForm");
   const reviewsGrid = document.getElementById("reviewsGrid");
 
   if (reviewForm && reviewsGrid) {
-    // Load existing reviews from localStorage
-    loadLocalReviews();
+    // Fetch global reviews from Cloudflare D1
+    loadGlobalReviews();
 
-    reviewForm.addEventListener("submit", function (e) {
+    reviewForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const name = document.getElementById("reviewerName").value.trim();
@@ -65,37 +66,59 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!name || !comment) return;
 
       const starsText = "⭐".repeat(ratingVal);
+      const currentDate = new Date().toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+      });
 
       const newReview = {
         name: name,
         stars: starsText,
         comment: comment,
-      
+        date: currentDate
       };
 
-      // Save to local storage array
-      saveReviewLocally(newReview);
-
-      // Prepend review to UI
-      renderReviewCard(newReview, true);
-
-      // Reset form
-      reviewForm.reset();
-
-      // Alert user
-      if (typeof Swal !== "undefined") {
-        Swal.fire({
-          title: "Thank You!",
-          text: "Your review has been published on our homepage.",
-          icon: "success",
-          confirmButtonColor: "#d4af37",
-          background: "#0b0e14",
-          color: "#ffffff"
+      try {
+        const response = await fetch(WORKER_API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newReview)
         });
-      } else {
-        alert("Thank you! Your review has been published.");
+
+        if (response.ok) {
+          renderReviewCard(newReview, true);
+          reviewForm.reset();
+
+          if (typeof Swal !== "undefined") {
+            Swal.fire({
+              title: "Thank You!",
+              text: "Your review has been published globally on our homepage.",
+              icon: "success",
+              confirmButtonColor: "#d4af37",
+              background: "#0b0e14",
+              color: "#ffffff"
+            });
+          }
+        }
+      } catch (err) {
+        console.error("Failed to post review:", err);
       }
     });
+  }
+
+  async function loadGlobalReviews() {
+    try {
+      const response = await fetch(WORKER_API_URL);
+      if (!response.ok) return;
+
+      const reviews = await response.json();
+      reviewsGrid.innerHTML = ""; // Clear loader/defaults
+
+      reviews.forEach((rev) => renderReviewCard(rev, false));
+    } catch (err) {
+      console.error("Failed to load reviews:", err);
+    }
   }
 
   function renderReviewCard(review, isNew = false) {
@@ -107,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="review-stars">${review.stars}</span>
       </div>
       <p class="step-desc">"${escapeHtml(review.comment)}"</p>
-   
+      <span class="review-date">${review.date}</span>
     `;
 
     if (isNew) {
@@ -115,17 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       reviewsGrid.appendChild(card);
     }
-  }
-
-  function saveReviewLocally(review) {
-    let reviews = JSON.parse(localStorage.getItem("nuraan_reviews") || "[]");
-    reviews.unshift(review);
-    localStorage.setItem("nuraan_reviews", JSON.stringify(reviews));
-  }
-
-  function loadLocalReviews() {
-    let reviews = JSON.parse(localStorage.getItem("nuraan_reviews") || "[]");
-    reviews.forEach((rev) => renderReviewCard(rev, false));
   }
 
   function escapeHtml(str) {
