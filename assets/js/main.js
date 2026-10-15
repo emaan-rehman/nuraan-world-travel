@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
    GLOBAL CLOUDFLARE D1 COMMENT & REVIEW SYSTEM (NO DATE FIELD)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
-  const WORKER_API_URL = "https://nuraan-reviews-api.fly2worldtravels.workers.dev/"; // Replace with your Worker URL
+  const WORKER_API_URL = "https://nuraan-reviews-api.fly2worldtravels.workers.dev/api/reviews"; // Replace with your Worker URL
   const reviewForm = document.getElementById("reviewForm");
   const reviewsGrid = document.getElementById("reviewsGrid");
 
