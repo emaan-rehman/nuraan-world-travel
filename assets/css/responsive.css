@@ -339,6 +339,11 @@ img, video, iframe, canvas, svg {
   .airline-logo-box img {
     max-height: 32px;
   }
+  /* Reviews Section Mobile Collapse */
+  .reviews-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
 }
 
 /* --------------------------------------------------------------------------

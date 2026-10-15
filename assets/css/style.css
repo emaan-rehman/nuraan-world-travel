@@ -1622,3 +1622,70 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   padding: 4px;
 }
+/* ==========================================================================
+   CUSTOMER REVIEWS & COMMENTS SECTION
+   ========================================================================== */
+.reviews-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.review-form-card {
+  padding: 24px;
+}
+/* ==========================================================================
+   REVIEWS SCROLLER & CONTAINER HEIGHT LIMIT
+   ========================================================================== */
+.reviews-display-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  max-height: 420px !important; /* Limits box height to fit ~3 cards comfortably */
+  overflow-y: auto !important;  /* Adds vertical scroller when overflowed */
+  padding-right: 10px !important; /* Space for the scrollbar thumb */
+}
+
+/* Custom Gold Styled Scrollbar for Webkit Browsers */
+.reviews-display-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reviews-display-grid::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+  border-radius: var(--radius-full);
+}
+
+.reviews-display-grid::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+}
+
+.reviews-display-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-hover);
+}
+
+.review-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewer-author {
+  font-weight: 700;
+  color: var(--color-gold);
+  font-size: 1rem;
+}
+
+.review-stars {
+  font-size: 0.85rem;
+}
+
