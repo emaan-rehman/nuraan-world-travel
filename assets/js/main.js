@@ -45,15 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 /* ==========================================================================
-   GLOBAL CLOUDFLARE D1 COMMENT & REVIEW SYSTEM
+   GLOBAL CLOUDFLARE D1 COMMENT & REVIEW SYSTEM (NO DATE FIELD)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
-  const WORKER_API_URL = "https://nuraan-reviews-api.fly2worldtravels.workers.dev/"; 
+  const WORKER_API_URL = "https://nuraan-reviews-api.YOUR-SUBDOMAIN.workers.dev/api/reviews"; // Replace with your Worker URL
   const reviewForm = document.getElementById("reviewForm");
   const reviewsGrid = document.getElementById("reviewsGrid");
 
   if (reviewForm && reviewsGrid) {
-    // Fetch global reviews from Cloudflare D1
     loadGlobalReviews();
 
     reviewForm.addEventListener("submit", async function (e) {
@@ -66,17 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!name || !comment) return;
 
       const starsText = "⭐".repeat(ratingVal);
-      const currentDate = new Date().toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric"
-      });
 
       const newReview = {
         name: name,
         stars: starsText,
-        comment: comment,
-        date: currentDate
+        comment: comment
       };
 
       try {
@@ -113,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!response.ok) return;
 
       const reviews = await response.json();
-      reviewsGrid.innerHTML = ""; // Clear loader/defaults
+      reviewsGrid.innerHTML = "";
 
       reviews.forEach((rev) => renderReviewCard(rev, false));
     } catch (err) {
@@ -130,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="review-stars">${review.stars}</span>
       </div>
       <p class="step-desc">"${escapeHtml(review.comment)}"</p>
-      <span class="review-date">${review.date}</span>
     `;
 
     if (isNew) {
